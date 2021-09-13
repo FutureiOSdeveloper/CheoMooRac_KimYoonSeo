@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD2844A626EF35C4004FC840 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2844A526EF35C4004FC840 /* AppDelegate.swift */; };
+		DD2844A826EF35C4004FC840 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2844A726EF35C4004FC840 /* SceneDelegate.swift */; };
+		DD2844AA26EF35C4004FC840 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2844A926EF35C4004FC840 /* ViewController.swift */; };
+		DD2844AD26EF35C4004FC840 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD2844AB26EF35C4004FC840 /* Main.storyboard */; };
+		DD2844B026EF35C5004FC840 /* CheoMooRac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD2844AE26EF35C5004FC840 /* CheoMooRac.xcdatamodeld */; };
+		DD2844B226EF35C7004FC840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2844B126EF35C7004FC840 /* Assets.xcassets */; };
+		DD2844B526EF35C7004FC840 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD2844B326EF35C7004FC840 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DD2844A226EF35C4004FC840 /* CheoMooRac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheoMooRac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD2844A526EF35C4004FC840 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD2844A726EF35C4004FC840 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DD2844A926EF35C4004FC840 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD2844AC26EF35C4004FC840 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD2844AF26EF35C5004FC840 /* CheoMooRac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CheoMooRac.xcdatamodel; sourceTree = "<group>"; };
+		DD2844B126EF35C7004FC840 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD2844B426EF35C7004FC840 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD2844B626EF35C7004FC840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD28449F26EF35C4004FC840 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD28449926EF35C4004FC840 = {
+			isa = PBXGroup;
+			children = (
+				DD2844A426EF35C4004FC840 /* CheoMooRac */,
+				DD2844A326EF35C4004FC840 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD2844A326EF35C4004FC840 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD2844A226EF35C4004FC840 /* CheoMooRac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD2844A426EF35C4004FC840 /* CheoMooRac */ = {
+			isa = PBXGroup;
+			children = (
+				DD2844BD26EF35EB004FC840 /* Sources */,
+				DD2844BC26EF35E1004FC840 /* Resources */,
+				DD2844B626EF35C7004FC840 /* Info.plist */,
+			);
+			path = CheoMooRac;
+			sourceTree = "<group>";
+		};
+		DD2844BC26EF35E1004FC840 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD2844C026EF366E004FC840 /* CoreData */,
+				DD2844BE26EF35FD004FC840 /* Storyboards */,
+				DD2844B126EF35C7004FC840 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD2844BD26EF35EB004FC840 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DD2844C126EF3684004FC840 /* ViewControllers */,
+				DD2844BF26EF3610004FC840 /* Surpports */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		DD2844BE26EF35FD004FC840 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				DD2844AB26EF35C4004FC840 /* Main.storyboard */,
+				DD2844B326EF35C7004FC840 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		DD2844BF26EF3610004FC840 /* Surpports */ = {
+			isa = PBXGroup;
+			children = (
+				DD2844A526EF35C4004FC840 /* AppDelegate.swift */,
+				DD2844A726EF35C4004FC840 /* SceneDelegate.swift */,
+			);
+			path = Surpports;
+			sourceTree = "<group>";
+		};
+		DD2844C026EF366E004FC840 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DD2844AE26EF35C5004FC840 /* CheoMooRac.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		DD2844C126EF3684004FC840 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DD2844A926EF35C4004FC840 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD2844A126EF35C4004FC840 /* CheoMooRac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD2844B926EF35C7004FC840 /* Build configuration list for PBXNativeTarget "CheoMooRac" */;
+			buildPhases = (
+				DD28449E26EF35C4004FC840 /* Sources */,
+				DD28449F26EF35C4004FC840 /* Frameworks */,
+				DD2844A026EF35C4004FC840 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CheoMooRac;
+			productName = CheoMooRac;
+			productReference = DD2844A226EF35C4004FC840 /* CheoMooRac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD28449A26EF35C4004FC840 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					DD2844A126EF35C4004FC840 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = DD28449D26EF35C4004FC840 /* Build configuration list for PBXProject "CheoMooRac" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD28449926EF35C4004FC840;
+			productRefGroup = DD2844A326EF35C4004FC840 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD2844A126EF35C4004FC840 /* CheoMooRac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD2844A026EF35C4004FC840 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD2844B526EF35C7004FC840 /* LaunchScreen.storyboard in Resources */,
+				DD2844B226EF35C7004FC840 /* Assets.xcassets in Resources */,
+				DD2844AD26EF35C4004FC840 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD28449E26EF35C4004FC840 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD2844AA26EF35C4004FC840 /* ViewController.swift in Sources */,
+				DD2844A626EF35C4004FC840 /* AppDelegate.swift in Sources */,
+				DD2844A826EF35C4004FC840 /* SceneDelegate.swift in Sources */,
+				DD2844B026EF35C5004FC840 /* CheoMooRac.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DD2844AB26EF35C4004FC840 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD2844AC26EF35C4004FC840 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD2844B326EF35C7004FC840 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD2844B426EF35C7004FC840 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD2844B726EF35C7004FC840 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DD2844B826EF35C7004FC840 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD2844BA26EF35C7004FC840 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CheoMooRac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ezidayzi.CheoMooRac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD2844BB26EF35C7004FC840 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CheoMooRac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ezidayzi.CheoMooRac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD28449D26EF35C4004FC840 /* Build configuration list for PBXProject "CheoMooRac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD2844B726EF35C7004FC840 /* Debug */,
+				DD2844B826EF35C7004FC840 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD2844B926EF35C7004FC840 /* Build configuration list for PBXNativeTarget "CheoMooRac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD2844BA26EF35C7004FC840 /* Debug */,
+				DD2844BB26EF35C7004FC840 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DD2844AE26EF35C5004FC840 /* CheoMooRac.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DD2844AF26EF35C5004FC840 /* CheoMooRac.xcdatamodel */,
+			);
+			currentVersion = DD2844AF26EF35C5004FC840 /* CheoMooRac.xcdatamodel */;
+			path = CheoMooRac.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DD28449A26EF35C4004FC840 /* Project object */;
+}
