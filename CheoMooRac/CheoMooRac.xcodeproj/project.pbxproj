@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,13 @@
 		DD2844B026EF35C5004FC840 /* CheoMooRac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD2844AE26EF35C5004FC840 /* CheoMooRac.xcdatamodeld */; };
 		DD2844B226EF35C7004FC840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2844B126EF35C7004FC840 /* Assets.xcassets */; };
 		DD2844B526EF35C7004FC840 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD2844B326EF35C7004FC840 /* LaunchScreen.storyboard */; };
+		DD6CCCC826F072A700C7BA2C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCC726F072A700C7BA2C /* SnapKit */; };
+		DD6CCCCB26F072BA00C7BA2C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCCA26F072BA00C7BA2C /* RxSwift */; };
+		DD6CCCCD26F072BA00C7BA2C /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCCC26F072BA00C7BA2C /* RxTest */; };
+		DD6CCCCF26F072BA00C7BA2C /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCCE26F072BA00C7BA2C /* RxRelay */; };
+		DD6CCCD126F072BA00C7BA2C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCD026F072BA00C7BA2C /* RxCocoa */; };
+		DD6CCCD326F072BA00C7BA2C /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCD226F072BA00C7BA2C /* RxBlocking */; };
+		DD6CCCD626F073D000C7BA2C /* SwiftLintFramework in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCD526F073D000C7BA2C /* SwiftLintFramework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +40,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD6CCCCB26F072BA00C7BA2C /* RxSwift in Frameworks */,
+				DD6CCCD626F073D000C7BA2C /* SwiftLintFramework in Frameworks */,
+				DD6CCCD326F072BA00C7BA2C /* RxBlocking in Frameworks */,
+				DD6CCCCD26F072BA00C7BA2C /* RxTest in Frameworks */,
+				DD6CCCD126F072BA00C7BA2C /* RxCocoa in Frameworks */,
+				DD6CCCCF26F072BA00C7BA2C /* RxRelay in Frameworks */,
+				DD6CCCC826F072A700C7BA2C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +148,15 @@
 			dependencies = (
 			);
 			name = CheoMooRac;
+			packageProductDependencies = (
+				DD6CCCC726F072A700C7BA2C /* SnapKit */,
+				DD6CCCCA26F072BA00C7BA2C /* RxSwift */,
+				DD6CCCCC26F072BA00C7BA2C /* RxTest */,
+				DD6CCCCE26F072BA00C7BA2C /* RxRelay */,
+				DD6CCCD026F072BA00C7BA2C /* RxCocoa */,
+				DD6CCCD226F072BA00C7BA2C /* RxBlocking */,
+				DD6CCCD526F073D000C7BA2C /* SwiftLintFramework */,
+			);
 			productName = CheoMooRac;
 			productReference = DD2844A226EF35C4004FC840 /* CheoMooRac.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +184,11 @@
 				Base,
 			);
 			mainGroup = DD28449926EF35C4004FC840;
+			packageReferences = (
+				DD6CCCC626F072A700C7BA2C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */,
+				DD6CCCD426F073D000C7BA2C /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			productRefGroup = DD2844A326EF35C4004FC840 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -391,6 +419,71 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DD6CCCC626F072A700C7BA2C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
+		DD6CCCD426F073D000C7BA2C /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.44.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DD6CCCC726F072A700C7BA2C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD6CCCC626F072A700C7BA2C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		DD6CCCCA26F072BA00C7BA2C /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		DD6CCCCC26F072BA00C7BA2C /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		DD6CCCCE26F072BA00C7BA2C /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		DD6CCCD026F072BA00C7BA2C /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		DD6CCCD226F072BA00C7BA2C /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		DD6CCCD526F073D000C7BA2C /* SwiftLintFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD6CCCD426F073D000C7BA2C /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = SwiftLintFramework;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DD2844AE26EF35C5004FC840 /* CheoMooRac.xcdatamodeld */ = {
