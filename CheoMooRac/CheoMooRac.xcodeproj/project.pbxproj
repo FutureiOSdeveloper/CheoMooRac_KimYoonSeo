@@ -21,6 +21,7 @@
 		DD6CCCD126F072BA00C7BA2C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCD026F072BA00C7BA2C /* RxCocoa */; };
 		DD6CCCD326F072BA00C7BA2C /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCD226F072BA00C7BA2C /* RxBlocking */; };
 		DD6CCCD626F073D000C7BA2C /* SwiftLintFramework in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCD526F073D000C7BA2C /* SwiftLintFramework */; };
+		DD6CCCD926F0754000C7BA2C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCD826F0754000C7BA2C /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 				DD6CCCCB26F072BA00C7BA2C /* RxSwift in Frameworks */,
 				DD6CCCD626F073D000C7BA2C /* SwiftLintFramework in Frameworks */,
 				DD6CCCD326F072BA00C7BA2C /* RxBlocking in Frameworks */,
+				DD6CCCD926F0754000C7BA2C /* Then in Frameworks */,
 				DD6CCCCD26F072BA00C7BA2C /* RxTest in Frameworks */,
 				DD6CCCD126F072BA00C7BA2C /* RxCocoa in Frameworks */,
 				DD6CCCCF26F072BA00C7BA2C /* RxRelay in Frameworks */,
@@ -156,6 +158,7 @@
 				DD6CCCD026F072BA00C7BA2C /* RxCocoa */,
 				DD6CCCD226F072BA00C7BA2C /* RxBlocking */,
 				DD6CCCD526F073D000C7BA2C /* SwiftLintFramework */,
+				DD6CCCD826F0754000C7BA2C /* Then */,
 			);
 			productName = CheoMooRac;
 			productReference = DD2844A226EF35C4004FC840 /* CheoMooRac.app */;
@@ -188,6 +191,7 @@
 				DD6CCCC626F072A700C7BA2C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */,
 				DD6CCCD426F073D000C7BA2C /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				DD6CCCD726F0753F00C7BA2C /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = DD2844A326EF35C4004FC840 /* Products */;
 			projectDirPath = "";
@@ -445,6 +449,14 @@
 				minimumVersion = 0.44.0;
 			};
 		};
+		DD6CCCD726F0753F00C7BA2C /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -482,6 +494,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DD6CCCD426F073D000C7BA2C /* XCRemoteSwiftPackageReference "SwiftLint" */;
 			productName = SwiftLintFramework;
+		};
+		DD6CCCD826F0754000C7BA2C /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD6CCCD726F0753F00C7BA2C /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 
