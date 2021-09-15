@@ -14,14 +14,19 @@
 		DD2844B026EF35C5004FC840 /* CheoMooRac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD2844AE26EF35C5004FC840 /* CheoMooRac.xcdatamodeld */; };
 		DD2844B226EF35C7004FC840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2844B126EF35C7004FC840 /* Assets.xcassets */; };
 		DD2844B526EF35C7004FC840 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD2844B326EF35C7004FC840 /* LaunchScreen.storyboard */; };
+		DD372A5A26F0EBC30033D40A /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372A5926F0EBC30033D40A /* TextFieldTableViewCell.swift */; };
+		DD372A5D26F0EEAF0033D40A /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372A5C26F0EEAF0033D40A /* ProfileHeaderView.swift */; };
+		DD372A5F26F0FD760033D40A /* UIButton+setBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372A5E26F0FD760033D40A /* UIButton+setBackgroundColor.swift */; };
 		DD6CCCC826F072A700C7BA2C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCC726F072A700C7BA2C /* SnapKit */; };
-		DD6CCCCB26F072BA00C7BA2C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCCA26F072BA00C7BA2C /* RxSwift */; };
-		DD6CCCCD26F072BA00C7BA2C /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCCC26F072BA00C7BA2C /* RxTest */; };
-		DD6CCCCF26F072BA00C7BA2C /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCCE26F072BA00C7BA2C /* RxRelay */; };
-		DD6CCCD126F072BA00C7BA2C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCD026F072BA00C7BA2C /* RxCocoa */; };
-		DD6CCCD326F072BA00C7BA2C /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCD226F072BA00C7BA2C /* RxBlocking */; };
-		DD6CCCD626F073D000C7BA2C /* SwiftLintFramework in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCD526F073D000C7BA2C /* SwiftLintFramework */; };
-		DD6CCCD926F0754000C7BA2C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCD826F0754000C7BA2C /* Then */; };
+		DD6CCCDC26F0792900C7BA2C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCDB26F0792900C7BA2C /* RxSwift */; };
+		DD6CCCDE26F0792900C7BA2C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCDD26F0792900C7BA2C /* RxCocoa */; };
+		DD6CCCE026F0792900C7BA2C /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCDF26F0792900C7BA2C /* RxRelay */; };
+		DD6CCCE326F07A0100C7BA2C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCE226F07A0100C7BA2C /* Then */; };
+		DD6CCCE626F080F300C7BA2C /* UITableView+Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCE526F080F300C7BA2C /* UITableView+Generic.swift */; };
+		DD6CCCE826F0811600C7BA2C /* UIView+addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCE726F0811600C7BA2C /* UIView+addSubviews.swift */; };
+		DD6CCCEA26F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCE926F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift */; };
+		DD6CCCED26F081C600C7BA2C /* MyCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */; };
+		DD6CCCEF26F08EB200C7BA2C /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,14 @@
 		DD2844B126EF35C7004FC840 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD2844B426EF35C7004FC840 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD2844B626EF35C7004FC840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD372A5926F0EBC30033D40A /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		DD372A5C26F0EEAF0033D40A /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		DD372A5E26F0FD760033D40A /* UIButton+setBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+setBackgroundColor.swift"; sourceTree = "<group>"; };
+		DD6CCCE526F080F300C7BA2C /* UITableView+Generic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Generic.swift"; sourceTree = "<group>"; };
+		DD6CCCE726F0811600C7BA2C /* UIView+addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addSubviews.swift"; sourceTree = "<group>"; };
+		DD6CCCE926F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+addArrangedSubviews.swift"; sourceTree = "<group>"; };
+		DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardTableViewCell.swift; sourceTree = "<group>"; };
+		DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,13 +54,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD6CCCCB26F072BA00C7BA2C /* RxSwift in Frameworks */,
-				DD6CCCD626F073D000C7BA2C /* SwiftLintFramework in Frameworks */,
-				DD6CCCD326F072BA00C7BA2C /* RxBlocking in Frameworks */,
-				DD6CCCD926F0754000C7BA2C /* Then in Frameworks */,
-				DD6CCCCD26F072BA00C7BA2C /* RxTest in Frameworks */,
-				DD6CCCD126F072BA00C7BA2C /* RxCocoa in Frameworks */,
-				DD6CCCCF26F072BA00C7BA2C /* RxRelay in Frameworks */,
+				DD6CCCE326F07A0100C7BA2C /* Then in Frameworks */,
+				DD6CCCDE26F0792900C7BA2C /* RxCocoa in Frameworks */,
+				DD6CCCDC26F0792900C7BA2C /* RxSwift in Frameworks */,
+				DD6CCCE026F0792900C7BA2C /* RxRelay in Frameworks */,
 				DD6CCCC826F072A700C7BA2C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,6 +104,9 @@
 		DD2844BD26EF35EB004FC840 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				DD372A5B26F0EE2C0033D40A /* Headers */,
+				DD6CCCEB26F081A700C7BA2C /* Cells */,
+				DD6CCCE426F080A200C7BA2C /* Exensions */,
 				DD2844C126EF3684004FC840 /* ViewControllers */,
 				DD2844BF26EF3610004FC840 /* Surpports */,
 			);
@@ -130,8 +143,37 @@
 			isa = PBXGroup;
 			children = (
 				DD2844A926EF35C4004FC840 /* ViewController.swift */,
+				DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DD372A5B26F0EE2C0033D40A /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				DD372A5C26F0EEAF0033D40A /* ProfileHeaderView.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		DD6CCCE426F080A200C7BA2C /* Exensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD6CCCE526F080F300C7BA2C /* UITableView+Generic.swift */,
+				DD6CCCE726F0811600C7BA2C /* UIView+addSubviews.swift */,
+				DD6CCCE926F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift */,
+				DD372A5E26F0FD760033D40A /* UIButton+setBackgroundColor.swift */,
+			);
+			path = Exensions;
+			sourceTree = "<group>";
+		};
+		DD6CCCEB26F081A700C7BA2C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */,
+				DD372A5926F0EBC30033D40A /* TextFieldTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,13 +194,10 @@
 			name = CheoMooRac;
 			packageProductDependencies = (
 				DD6CCCC726F072A700C7BA2C /* SnapKit */,
-				DD6CCCCA26F072BA00C7BA2C /* RxSwift */,
-				DD6CCCCC26F072BA00C7BA2C /* RxTest */,
-				DD6CCCCE26F072BA00C7BA2C /* RxRelay */,
-				DD6CCCD026F072BA00C7BA2C /* RxCocoa */,
-				DD6CCCD226F072BA00C7BA2C /* RxBlocking */,
-				DD6CCCD526F073D000C7BA2C /* SwiftLintFramework */,
-				DD6CCCD826F0754000C7BA2C /* Then */,
+				DD6CCCDB26F0792900C7BA2C /* RxSwift */,
+				DD6CCCDD26F0792900C7BA2C /* RxCocoa */,
+				DD6CCCDF26F0792900C7BA2C /* RxRelay */,
+				DD6CCCE226F07A0100C7BA2C /* Then */,
 			);
 			productName = CheoMooRac;
 			productReference = DD2844A226EF35C4004FC840 /* CheoMooRac.app */;
@@ -189,9 +228,8 @@
 			mainGroup = DD28449926EF35C4004FC840;
 			packageReferences = (
 				DD6CCCC626F072A700C7BA2C /* XCRemoteSwiftPackageReference "SnapKit" */,
-				DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */,
-				DD6CCCD426F073D000C7BA2C /* XCRemoteSwiftPackageReference "SwiftLint" */,
-				DD6CCCD726F0753F00C7BA2C /* XCRemoteSwiftPackageReference "Then" */,
+				DD6CCCDA26F0792900C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */,
+				DD6CCCE126F07A0100C7BA2C /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = DD2844A326EF35C4004FC840 /* Products */;
 			projectDirPath = "";
@@ -220,10 +258,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD6CCCE826F0811600C7BA2C /* UIView+addSubviews.swift in Sources */,
 				DD2844AA26EF35C4004FC840 /* ViewController.swift in Sources */,
+				DD372A5D26F0EEAF0033D40A /* ProfileHeaderView.swift in Sources */,
+				DD6CCCEF26F08EB200C7BA2C /* CreateViewController.swift in Sources */,
+				DD372A5F26F0FD760033D40A /* UIButton+setBackgroundColor.swift in Sources */,
 				DD2844A626EF35C4004FC840 /* AppDelegate.swift in Sources */,
+				DD6CCCEA26F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift in Sources */,
 				DD2844A826EF35C4004FC840 /* SceneDelegate.swift in Sources */,
 				DD2844B026EF35C5004FC840 /* CheoMooRac.xcdatamodeld in Sources */,
+				DD6CCCE626F080F300C7BA2C /* UITableView+Generic.swift in Sources */,
+				DD6CCCED26F081C600C7BA2C /* MyCardTableViewCell.swift in Sources */,
+				DD372A5A26F0EBC30033D40A /* TextFieldTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +479,7 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		DD6CCCDA26F0792900C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
 			requirement = {
@@ -441,15 +487,7 @@
 				minimumVersion = 6.2.0;
 			};
 		};
-		DD6CCCD426F073D000C7BA2C /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/SwiftLint";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.44.0;
-			};
-		};
-		DD6CCCD726F0753F00C7BA2C /* XCRemoteSwiftPackageReference "Then" */ = {
+		DD6CCCE126F07A0100C7BA2C /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
 			requirement = {
@@ -465,39 +503,24 @@
 			package = DD6CCCC626F072A700C7BA2C /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		DD6CCCCA26F072BA00C7BA2C /* RxSwift */ = {
+		DD6CCCDB26F0792900C7BA2C /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = DD6CCCDA26F0792900C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
-		DD6CCCCC26F072BA00C7BA2C /* RxTest */ = {
+		DD6CCCDD26F0792900C7BA2C /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxTest;
-		};
-		DD6CCCCE26F072BA00C7BA2C /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		DD6CCCD026F072BA00C7BA2C /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = DD6CCCDA26F0792900C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		DD6CCCD226F072BA00C7BA2C /* RxBlocking */ = {
+		DD6CCCDF26F0792900C7BA2C /* RxRelay */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DD6CCCC926F072BA00C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
+			package = DD6CCCDA26F0792900C7BA2C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
 		};
-		DD6CCCD526F073D000C7BA2C /* SwiftLintFramework */ = {
+		DD6CCCE226F07A0100C7BA2C /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DD6CCCD426F073D000C7BA2C /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = SwiftLintFramework;
-		};
-		DD6CCCD826F0754000C7BA2C /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DD6CCCD726F0753F00C7BA2C /* XCRemoteSwiftPackageReference "Then" */;
+			package = DD6CCCE126F07A0100C7BA2C /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
