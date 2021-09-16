@@ -11,7 +11,7 @@ class TextFieldTableViewCell: UITableViewCell,Reusable {
     
     private let textField = UITextField().then {
         $0.borderStyle = .none
-        $0.textColor = .systemRed
+        $0.textColor = .black
     }
     
     

@@ -16,12 +16,12 @@ class MyCardTableViewCell: UITableViewCell, Reusable {
     
     private let nameLabel = UILabel().then {
         $0.text = "김윤서"
-        $0.font = .boldSystemFont(ofSize: 15)
+        $0.font = .boldSystemFont(ofSize: 18)
     }
     
     private let discriptionLabel = UILabel().then {
         $0.text = "내 카드"
-        $0.font = .systemFont(ofSize: 10)
+        $0.font = .systemFont(ofSize: 13)
         $0.textColor = .lightGray
     }
     
@@ -53,12 +53,12 @@ class MyCardTableViewCell: UITableViewCell, Reusable {
     private func setConstraints() {
         
         profileImageView.snp.makeConstraints {
-            $0.width.height.equalTo(40)
-            $0.top.equalToSuperview().offset(20)
+            $0.width.height.equalTo(50)
+            $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(20)
         }
         
-        profileImageView.layer.cornerRadius = 20
+        profileImageView.layer.cornerRadius = 25
         
         vStackView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
