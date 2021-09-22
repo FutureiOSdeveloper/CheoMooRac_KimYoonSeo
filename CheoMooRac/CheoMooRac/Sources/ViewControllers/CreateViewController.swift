@@ -114,7 +114,7 @@ extension CreateViewController: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(indexPath: indexPath) as TextFieldTableViewCell
             cell.placeholder = Placeholder.init(rawValue: indexPath.row)?.text
-            cell.delegate = self
+            cell.textFieldDelegate = self
             return cell
         default:
             return UITableViewCell()

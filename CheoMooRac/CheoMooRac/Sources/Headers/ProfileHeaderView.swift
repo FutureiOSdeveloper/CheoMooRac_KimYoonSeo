@@ -36,8 +36,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView, Reusable {
         
         profileButton.snp.makeConstraints {
             $0.width.height.equalTo(100)
-            $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview()
+            $0.center.equalToSuperview()
         }
         
         profileButton.layer.cornerRadius = 50

@@ -25,9 +25,9 @@ class TextFieldTableViewCell: UITableViewCell,Reusable {
         }
     }
     
-    public var delegate: UITextFieldDelegate? {
+    public var textFieldDelegate: UITextFieldDelegate? {
         didSet{
-            textField.delegate = delegate
+            textField.delegate = textFieldDelegate
         }
     }
 

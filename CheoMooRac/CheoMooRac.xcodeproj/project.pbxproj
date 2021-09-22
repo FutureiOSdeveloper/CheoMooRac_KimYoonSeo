@@ -27,6 +27,8 @@
 		DD6CCCEA26F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCE926F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift */; };
 		DD6CCCED26F081C600C7BA2C /* MyCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */; };
 		DD6CCCEF26F08EB200C7BA2C /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */; };
+		DD868E7026FB56D700D5BE38 /* StringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD868E6F26FB56D700D5BE38 /* StringManager.swift */; };
+		DDC49F1C26F8A829001921C1 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC49F1B26F8A829001921C1 /* ReadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		DD6CCCE926F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+addArrangedSubviews.swift"; sourceTree = "<group>"; };
 		DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardTableViewCell.swift; sourceTree = "<group>"; };
 		DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		DD868E6F26FB56D700D5BE38 /* StringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringManager.swift; sourceTree = "<group>"; };
+		DDC49F1B26F8A829001921C1 /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		DD2844BD26EF35EB004FC840 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				DD868E6E26FB56C900D5BE38 /* Manager */,
 				DD372A5B26F0EE2C0033D40A /* Headers */,
 				DD6CCCEB26F081A700C7BA2C /* Cells */,
 				DD6CCCE426F080A200C7BA2C /* Exensions */,
@@ -142,6 +147,7 @@
 		DD2844C126EF3684004FC840 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DDC49F1B26F8A829001921C1 /* ReadViewController.swift */,
 				DD2844A926EF35C4004FC840 /* ViewController.swift */,
 				DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */,
 			);
@@ -174,6 +180,14 @@
 				DD372A5926F0EBC30033D40A /* TextFieldTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DD868E6E26FB56C900D5BE38 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				DD868E6F26FB56D700D5BE38 /* StringManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +276,11 @@
 				DD2844AA26EF35C4004FC840 /* ViewController.swift in Sources */,
 				DD372A5D26F0EEAF0033D40A /* ProfileHeaderView.swift in Sources */,
 				DD6CCCEF26F08EB200C7BA2C /* CreateViewController.swift in Sources */,
+				DD868E7026FB56D700D5BE38 /* StringManager.swift in Sources */,
 				DD372A5F26F0FD760033D40A /* UIButton+setBackgroundColor.swift in Sources */,
 				DD2844A626EF35C4004FC840 /* AppDelegate.swift in Sources */,
 				DD6CCCEA26F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift in Sources */,
+				DDC49F1C26F8A829001921C1 /* ReadViewController.swift in Sources */,
 				DD2844A826EF35C4004FC840 /* SceneDelegate.swift in Sources */,
 				DD2844B026EF35C5004FC840 /* CheoMooRac.xcdatamodeld in Sources */,
 				DD6CCCE626F080F300C7BA2C /* UITableView+Generic.swift in Sources */,
