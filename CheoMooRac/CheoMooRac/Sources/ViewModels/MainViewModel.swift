@@ -11,21 +11,26 @@ protocol MainViewModelInput {
     func refreshTableView()
     func searchResults(text: String)
     func cancelSearch()
-    func itemDidSelect(at: Int)
 }
 
 protocol MainViewModelOutput {
-    var list:  Dynamic<[Person]> {get}
+    var items:  Dynamic<[Person]> {get}
     var nowRefreshing: Dynamic<Bool> {get}
     var isFiltering: Dynamic<Bool> {get}
     
     var sectionHeaderList: [String] {get}
-    func getSectionArrayPerson(at section: Int) -> [Person]
+    func getSectionPersonArray(at section: Int) -> [Person]
 }
 
-protocol MainViewModelProtocol : MainViewModelInput, MainViewModelOutput {}
+protocol MainViewModelProtocol : MainViewModelInput, MainViewModelOutput {
+    var input : MainViewModelInput { get }
+    var output : MainViewModelOutput { get }
+}
 
 class MainViewModel: MainViewModelProtocol {
+    var input: MainViewModelInput { return self }
+    var output: MainViewModelOutput { return self }
+    
     //  MARK: - INPUT
     func refreshTableView() {
         if !nowRefreshing.value {
@@ -41,7 +46,7 @@ class MainViewModel: MainViewModelProtocol {
             setTableView()
         } else {
             self.sectionHeaderList.removeAll()
-            self.list.value.removeAll()
+            self.items.value.removeAll()
             
             isFiltering.value = true
             
@@ -54,7 +59,7 @@ class MainViewModel: MainViewModelProtocol {
             
             filterdHeaderList$ = Array(Set(filterdHeaderList$)).sorted()
             filteredData = filteredArr
-            list.value = filteredData
+            items.value = filteredData
             sectionHeaderList = filterdHeaderList$
         }
     }
@@ -63,23 +68,17 @@ class MainViewModel: MainViewModelProtocol {
         setTableView()
         isFiltering.value = false
     }
-    
-    func itemDidSelect(at: Int) {
-        
-    }
-    
 
    //  MARK: - OUTPUT
-    let list: Dynamic<[Person]> = Dynamic([])
+    let items: Dynamic<[Person]> = Dynamic([])
     let nowRefreshing: Dynamic<Bool> = Dynamic(false)
     let isFiltering: Dynamic<Bool> = Dynamic(false)
-    
     
     func getSectionArray(at section: Int) -> [String]  {
         return sectionArray(at: section, data: isFiltering.value ? self.filteredData : self.data)
     }
     
-    func getSectionArrayPerson(at section: Int) -> [Person]  {
+    func getSectionPersonArray(at section: Int) -> [Person]  {
         return sectionArrayPerson(at: section, data: isFiltering.value ? self.filteredData : self.data)
     }
     
@@ -116,9 +115,9 @@ class MainViewModel: MainViewModelProtocol {
       ]
     
     private func setTableView() {
-        self.list.value = data
+        self.items.value = data
         var sectionHeaderList$: [String] = []
-        self.list.value.forEach { person in
+        self.items.value.forEach { person in
             sectionHeaderList$.append(StringManager.shared.chosungCheck(word: person.familyName + person.firstName))
         }
         self.sectionHeaderList = Array(Set(sectionHeaderList$)).sorted()

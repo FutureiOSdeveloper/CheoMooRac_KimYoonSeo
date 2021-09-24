@@ -34,20 +34,20 @@ class MainTableViewController: UITableViewController {
     }
     
     private func bindViewModel() {
-        viewModel.list.bind { [weak self] _ in
+        viewModel.output.items.bind { [weak self] _ in
             guard let self = self else {return}
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
         
-        viewModel.isFiltering.bind { [weak self] _ in
+        viewModel.output.isFiltering.bind { [weak self] _ in
             guard let self = self else {return}
             self.isFiltering = self.viewModel.isFiltering.value
         }
         
         
-        viewModel.nowRefreshing.bind { [weak self] _ in
+        viewModel.output.nowRefreshing.bind { [weak self] _ in
             guard let self = self else {return}
             self.refreshControl?.endRefreshing()
         }
@@ -63,7 +63,7 @@ class MainTableViewController: UITableViewController {
 extension MainTableViewController {
     @objc
     private func tableViewDidPulled(refresh: UIRefreshControl) {
-        viewModel.refreshTableView()
+        viewModel.input.refreshTableView()
     }
 }
 
@@ -72,7 +72,7 @@ extension MainTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let person = viewModel.getSectionArrayPerson(at: indexPath.section)[indexPath.row]
+        let person = viewModel.output.getSectionPersonArray(at: indexPath.section)[indexPath.row]
         
         let contactDetailViewModel = ContactDetailViewModel(person: person)
         navigationController?.pushViewController(ContactDetailViewController(with: contactDetailViewModel), animated: true)
@@ -91,7 +91,7 @@ extension MainTableViewController {
 // MARK: - Data Source
 extension MainTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.sectionHeaderList.count + 1
+        return viewModel.output.sectionHeaderList.count + 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,7 +100,7 @@ extension MainTableViewController {
             guard let isFiltering = isFiltering else {return 1}
             return isFiltering ? 0 : 1
         default:
-            return viewModel.getSectionArrayPerson(at: section).count
+            return viewModel.output.getSectionPersonArray(at: section).count
         }
     }
     
@@ -112,7 +112,7 @@ extension MainTableViewController {
             
         case 1...viewModel.sectionHeaderList.count:
             let cell = UITableViewCell()
-            let person = viewModel.getSectionArrayPerson(at: indexPath.section)[indexPath.row]
+            let person = viewModel.output.getSectionPersonArray(at: indexPath.section)[indexPath.row]
             cell.textLabel?.text = person.familyName + person.firstName
             return cell
         
@@ -123,26 +123,26 @@ extension MainTableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section != 0 {
-            return viewModel.sectionHeaderList[section - 1]
+            return viewModel.output.sectionHeaderList[section - 1]
         } else {
             return nil
         }
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return viewModel.sectionHeaderList
+        return viewModel.output.sectionHeaderList
     }
 }
 
 extension MainTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        viewModel.searchResults(text: text)
+        viewModel.input.searchResults(text: text)
     }
 }
 
 extension MainTableViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.cancelSearch()
+        viewModel.input.cancelSearch()
     }
 }
