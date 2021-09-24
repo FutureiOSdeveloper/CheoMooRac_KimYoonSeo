@@ -69,7 +69,7 @@ extension MainTableViewController {
 
 extension MainTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.sectionHeaderList.value.count + 1
+        return viewModel.sectionHeaderList.count + 1
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -94,7 +94,7 @@ extension MainTableViewController {
             guard let isFiltering = isFiltering else {return 1}
             return isFiltering ? 0 : 1
         default:
-            return viewModel.getSectionArray(at: section).value.count
+            return viewModel.getSectionArray(at: section).count
         }
     }
     
@@ -104,9 +104,9 @@ extension MainTableViewController {
             let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MyCardTableViewCell
             return cell
             
-        case 1...viewModel.sectionHeaderList.value.count:
+        case 1...viewModel.sectionHeaderList.count:
             let cell = UITableViewCell()
-            cell.textLabel?.text = viewModel.getSectionArray(at: indexPath.section).value[indexPath.row]
+            cell.textLabel?.text = viewModel.getSectionArray(at: indexPath.section)[indexPath.row]
             return cell
         
         default:
@@ -116,14 +116,14 @@ extension MainTableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section != 0 {
-            return viewModel.sectionHeaderList.value[section - 1]
+            return viewModel.sectionHeaderList[section - 1]
         } else {
             return nil
         }
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return viewModel.sectionHeaderList.value
+        return viewModel.sectionHeaderList
     }
 }
 
