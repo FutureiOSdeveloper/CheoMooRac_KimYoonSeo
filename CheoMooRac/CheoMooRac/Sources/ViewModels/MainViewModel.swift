@@ -8,21 +8,43 @@
 import Foundation
 
 protocol MainViewModelInput {
-    
+    func refreshTableView()
 }
 
 protocol MainViewModelOutput {
     var list:  Dynamic<[String]> {get}
     var sectionHeaderList: Dynamic<[String]> {get}
+    var nowRefreshing: Dynamic<Bool> {get}
+    var sectionArray: Dynamic<[String]> {get}
+    func getSectionArray(at section: Int) -> Dynamic<[String]>
 }
 
 protocol MainViewModelProtocol : MainViewModelInput,MainViewModelOutput {}
 
 class MainViewModel: MainViewModelProtocol {
+    //  MARK: - INPUT
+    func refreshTableView() {
+        if !nowRefreshing.value {
+            nowRefreshing.value = true
+            //refreshing logic
+            nowRefreshing.value = false
+        }
+    }
+    
 
    //  MARK: - OUTPUT
     let list: Dynamic<[String]> = Dynamic([])
     let sectionHeaderList: Dynamic<[String]> = Dynamic([])
+    let nowRefreshing: Dynamic<Bool> = Dynamic(false)
+    let sectionArray: Dynamic<[String]> = Dynamic([])
+    
+    func getSectionArray(at section: Int) -> Dynamic<[String]>  {
+        
+        let list$ = self.list.value.filter {
+            return StringManager.shared.chosungCheck(word: $0) == sectionHeaderList.value[section-1]
+        }
+        return Dynamic(list$)
+    }
     
 //    private var filteredList: [String] = []
 //    private var filterdHeaderList: [String] = []
