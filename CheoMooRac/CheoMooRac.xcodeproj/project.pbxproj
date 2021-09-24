@@ -31,9 +31,11 @@
 		DD8A91E226FD7AFB004DAF3B /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A91E126FD7AFB004DAF3B /* Dynamic.swift */; };
 		DD8A91E526FD7B6C004DAF3B /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A91E426FD7B6C004DAF3B /* MainTableViewController.swift */; };
 		DD8A91E726FD94FA004DAF3B /* UIViewController+embed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A91E626FD94FA004DAF3B /* UIViewController+embed.swift */; };
+		DD8A91EA26FDC6AB004DAF3B /* ContactDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A91E926FDC6AB004DAF3B /* ContactDetailTableViewController.swift */; };
+		DD8A91ED26FDCA4E004DAF3B /* ContactDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A91EC26FDCA4E004DAF3B /* ContactDetailViewModel.swift */; };
 		DD96AA7126FCC44A00C9AA43 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96AA7026FCC44A00C9AA43 /* Person.swift */; };
 		DD96AA7426FCC61200C9AA43 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96AA7326FCC61200C9AA43 /* MainViewModel.swift */; };
-		DDC49F1C26F8A829001921C1 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC49F1B26F8A829001921C1 /* ReadViewController.swift */; };
+		DDC49F1C26F8A829001921C1 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC49F1B26F8A829001921C1 /* ContactDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,9 +60,11 @@
 		DD8A91E126FD7AFB004DAF3B /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		DD8A91E426FD7B6C004DAF3B /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		DD8A91E626FD94FA004DAF3B /* UIViewController+embed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+embed.swift"; sourceTree = "<group>"; };
+		DD8A91E926FDC6AB004DAF3B /* ContactDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailTableViewController.swift; sourceTree = "<group>"; };
+		DD8A91EC26FDCA4E004DAF3B /* ContactDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewModel.swift; sourceTree = "<group>"; };
 		DD96AA7026FCC44A00C9AA43 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DD96AA7326FCC61200C9AA43 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		DDC49F1B26F8A829001921C1 /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
+		DDC49F1B26F8A829001921C1 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +165,7 @@
 		DD2844C126EF3684004FC840 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DDC49F1B26F8A829001921C1 /* ReadViewController.swift */,
+				DDC49F1B26F8A829001921C1 /* ContactDetailViewController.swift */,
 				DD2844A926EF35C4004FC840 /* MainViewController.swift */,
 				DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */,
 			);
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				DD8A91E426FD7B6C004DAF3B /* MainTableViewController.swift */,
+				DD8A91E926FDC6AB004DAF3B /* ContactDetailTableViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				DD96AA7326FCC61200C9AA43 /* MainViewModel.swift */,
+				DD8A91EC26FDCA4E004DAF3B /* ContactDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -330,14 +336,16 @@
 				DD372A5F26F0FD760033D40A /* UIButton+setBackgroundColor.swift in Sources */,
 				DD2844A626EF35C4004FC840 /* AppDelegate.swift in Sources */,
 				DD6CCCEA26F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift in Sources */,
-				DDC49F1C26F8A829001921C1 /* ReadViewController.swift in Sources */,
+				DDC49F1C26F8A829001921C1 /* ContactDetailViewController.swift in Sources */,
 				DD8A91E226FD7AFB004DAF3B /* Dynamic.swift in Sources */,
 				DD2844A826EF35C4004FC840 /* SceneDelegate.swift in Sources */,
 				DD2844B026EF35C5004FC840 /* CheoMooRac.xcdatamodeld in Sources */,
 				DD6CCCE626F080F300C7BA2C /* UITableView+Generic.swift in Sources */,
+				DD8A91ED26FDCA4E004DAF3B /* ContactDetailViewModel.swift in Sources */,
 				DD6CCCED26F081C600C7BA2C /* MyCardTableViewCell.swift in Sources */,
 				DD372A5A26F0EBC30033D40A /* TextFieldTableViewCell.swift in Sources */,
 				DD96AA7426FCC61200C9AA43 /* MainViewModel.swift in Sources */,
+				DD8A91EA26FDC6AB004DAF3B /* ContactDetailTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

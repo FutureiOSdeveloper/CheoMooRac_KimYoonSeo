@@ -11,6 +11,7 @@ protocol MainViewModelInput {
     func refreshTableView()
     func searchResults(text: String)
     func cancelSearch()
+    func itemDidSelect(at: Int)
 }
 
 protocol MainViewModelOutput {
@@ -19,7 +20,7 @@ protocol MainViewModelOutput {
     var isFiltering: Dynamic<Bool> {get}
     
     var sectionHeaderList: [String] {get}
-    func getSectionArray(at section: Int) -> [String]
+    func getSectionArrayPerson(at section: Int) -> [Person]
 }
 
 protocol MainViewModelProtocol : MainViewModelInput, MainViewModelOutput {}
@@ -63,6 +64,10 @@ class MainViewModel: MainViewModelProtocol {
         isFiltering.value = false
     }
     
+    func itemDidSelect(at: Int) {
+        
+    }
+    
 
    //  MARK: - OUTPUT
     let list: Dynamic<[Person]> = Dynamic([])
@@ -72,6 +77,10 @@ class MainViewModel: MainViewModelProtocol {
     
     func getSectionArray(at section: Int) -> [String]  {
         return sectionArray(at: section, data: isFiltering.value ? self.filteredData : self.data)
+    }
+    
+    func getSectionArrayPerson(at section: Int) -> [Person]  {
+        return sectionArrayPerson(at: section, data: isFiltering.value ? self.filteredData : self.data)
     }
     
     var sectionHeaderList: [String] = []
@@ -85,7 +94,7 @@ class MainViewModel: MainViewModelProtocol {
     
     private var filteredData: [Person] = []
     
-    private let data =  [Person(firstName: "윤서", familyName: "김", phoneNumber: "010-6515-6030"),
+    private var data =  [Person(firstName: "윤서", familyName: "김", phoneNumber: "010-6515-6030"),
                          Person(firstName: "루희", familyName: "김", phoneNumber: "010-6515-6030"),
                          Person(firstName: "예지", familyName: "윤", phoneNumber: "010-6515-6030"),
                          Person(firstName: "혜수", familyName: "김", phoneNumber: "010-6515-6030"),
@@ -120,6 +129,13 @@ class MainViewModel: MainViewModelProtocol {
             return StringManager.shared.chosungCheck(word: $0.familyName + $0.firstName) == sectionHeaderList[section-1]
         }.map { person in
             return person.familyName + person.firstName
+        }
+        return list
+    }
+    
+    private func sectionArrayPerson(at section: Int, data: [Person]) -> [Person] {
+        let list = data.filter {
+            return StringManager.shared.chosungCheck(word: $0.familyName + $0.firstName) == sectionHeaderList[section-1]
         }
         return list
     }

@@ -12,7 +12,7 @@ import Then
 
 class MainViewController: UIViewController {
     
-    var tableViewController: MainTableViewController!
+    private var tableViewController: MainTableViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()

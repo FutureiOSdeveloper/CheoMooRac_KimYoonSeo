@@ -67,14 +67,15 @@ extension MainTableViewController {
     }
 }
 
+// MARK: - Delegate
 extension MainTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.sectionHeaderList.count + 1
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(ReadViewController(), animated: true)
+        
+        let person = viewModel.getSectionArrayPerson(at: indexPath.section)[indexPath.row]
+        
+        let contactDetailViewModel = ContactDetailViewModel(person: person)
+        navigationController?.pushViewController(ContactDetailViewController(with: contactDetailViewModel), animated: true)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -87,14 +88,19 @@ extension MainTableViewController {
     }
 }
 
+// MARK: - Data Source
 extension MainTableViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.sectionHeaderList.count + 1
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             guard let isFiltering = isFiltering else {return 1}
             return isFiltering ? 0 : 1
         default:
-            return viewModel.getSectionArray(at: section).count
+            return viewModel.getSectionArrayPerson(at: section).count
         }
     }
     
@@ -106,7 +112,8 @@ extension MainTableViewController {
             
         case 1...viewModel.sectionHeaderList.count:
             let cell = UITableViewCell()
-            cell.textLabel?.text = viewModel.getSectionArray(at: indexPath.section)[indexPath.row]
+            let person = viewModel.getSectionArrayPerson(at: indexPath.section)[indexPath.row]
+            cell.textLabel?.text = person.familyName + person.firstName
             return cell
         
         default:
