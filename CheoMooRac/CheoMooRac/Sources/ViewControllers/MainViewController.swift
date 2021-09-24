@@ -43,7 +43,8 @@ class MainViewController: UIViewController {
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonDidTapped))
         
-        searchController.searchResultsUpdater = self
+        searchController.searchResultsUpdater = tableViewController
+        searchController.searchBar.delegate = tableViewController
     }
     
     private func setLayouts() {
@@ -73,9 +74,3 @@ extension MainViewController {
     }
 }
 
-extension MainViewController: UISearchResultsUpdating{
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
-
-    }
-}

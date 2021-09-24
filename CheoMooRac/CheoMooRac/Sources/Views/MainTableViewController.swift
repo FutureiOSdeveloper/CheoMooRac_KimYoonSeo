@@ -8,7 +8,10 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
+    
     private var viewModel: MainViewModelProtocol
+    
+    private var isFiltering: Bool?
     
     init(with viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -33,8 +36,16 @@ class MainTableViewController: UITableViewController {
     private func bindViewModel() {
         viewModel.list.bind { [weak self] _ in
             guard let self = self else {return}
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
+        
+        viewModel.isFiltering.bind { [weak self] _ in
+            guard let self = self else {return}
+            self.isFiltering = self.viewModel.isFiltering.value
+        }
+        
         
         viewModel.nowRefreshing.bind { [weak self] _ in
             guard let self = self else {return}
@@ -80,7 +91,8 @@ extension MainTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 1
+            guard let isFiltering = isFiltering else {return 1}
+            return isFiltering ? 0 : 1
         default:
             return viewModel.getSectionArray(at: section).value.count
         }
@@ -112,5 +124,18 @@ extension MainTableViewController {
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return viewModel.sectionHeaderList.value
+    }
+}
+
+extension MainTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        viewModel.searchResults(text: text)
+    }
+}
+
+extension MainTableViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.cancelSearch()
     }
 }
