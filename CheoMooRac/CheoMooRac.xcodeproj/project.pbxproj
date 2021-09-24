@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DD2844A626EF35C4004FC840 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2844A526EF35C4004FC840 /* AppDelegate.swift */; };
 		DD2844A826EF35C4004FC840 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2844A726EF35C4004FC840 /* SceneDelegate.swift */; };
-		DD2844AA26EF35C4004FC840 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2844A926EF35C4004FC840 /* ViewController.swift */; };
+		DD2844AA26EF35C4004FC840 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2844A926EF35C4004FC840 /* MainViewController.swift */; };
 		DD2844AD26EF35C4004FC840 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD2844AB26EF35C4004FC840 /* Main.storyboard */; };
 		DD2844B026EF35C5004FC840 /* CheoMooRac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD2844AE26EF35C5004FC840 /* CheoMooRac.xcdatamodeld */; };
 		DD2844B226EF35C7004FC840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD2844B126EF35C7004FC840 /* Assets.xcassets */; };
@@ -28,6 +28,10 @@
 		DD6CCCED26F081C600C7BA2C /* MyCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */; };
 		DD6CCCEF26F08EB200C7BA2C /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */; };
 		DD868E7026FB56D700D5BE38 /* StringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD868E6F26FB56D700D5BE38 /* StringManager.swift */; };
+		DD8A91E226FD7AFB004DAF3B /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A91E126FD7AFB004DAF3B /* Dynamic.swift */; };
+		DD8A91E526FD7B6C004DAF3B /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A91E426FD7B6C004DAF3B /* MainTableViewController.swift */; };
+		DD96AA7126FCC44A00C9AA43 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96AA7026FCC44A00C9AA43 /* Person.swift */; };
+		DD96AA7426FCC61200C9AA43 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96AA7326FCC61200C9AA43 /* MainViewModel.swift */; };
 		DDC49F1C26F8A829001921C1 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC49F1B26F8A829001921C1 /* ReadViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +39,7 @@
 		DD2844A226EF35C4004FC840 /* CheoMooRac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheoMooRac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2844A526EF35C4004FC840 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD2844A726EF35C4004FC840 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD2844A926EF35C4004FC840 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD2844A926EF35C4004FC840 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DD2844AC26EF35C4004FC840 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD2844AF26EF35C5004FC840 /* CheoMooRac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CheoMooRac.xcdatamodel; sourceTree = "<group>"; };
 		DD2844B126EF35C7004FC840 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,6 +54,10 @@
 		DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardTableViewCell.swift; sourceTree = "<group>"; };
 		DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		DD868E6F26FB56D700D5BE38 /* StringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringManager.swift; sourceTree = "<group>"; };
+		DD8A91E126FD7AFB004DAF3B /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		DD8A91E426FD7B6C004DAF3B /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		DD96AA7026FCC44A00C9AA43 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		DD96AA7326FCC61200C9AA43 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		DDC49F1B26F8A829001921C1 /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +116,10 @@
 		DD2844BD26EF35EB004FC840 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DD868E6E26FB56C900D5BE38 /* Manager */,
+				DD8A91E326FD7B3B004DAF3B /* Views */,
+				DD96AA7226FCC5EA00C9AA43 /* ViewModels */,
+				DD96AA6F26FCC43A00C9AA43 /* Models */,
+				DD868E6E26FB56C900D5BE38 /* Managers */,
 				DD372A5B26F0EE2C0033D40A /* Headers */,
 				DD6CCCEB26F081A700C7BA2C /* Cells */,
 				DD6CCCE426F080A200C7BA2C /* Exensions */,
@@ -148,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC49F1B26F8A829001921C1 /* ReadViewController.swift */,
-				DD2844A926EF35C4004FC840 /* ViewController.swift */,
+				DD2844A926EF35C4004FC840 /* MainViewController.swift */,
 				DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */,
 			);
 			path = ViewControllers;
@@ -182,12 +193,37 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		DD868E6E26FB56C900D5BE38 /* Manager */ = {
+		DD868E6E26FB56C900D5BE38 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				DD868E6F26FB56D700D5BE38 /* StringManager.swift */,
 			);
-			path = Manager;
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DD8A91E326FD7B3B004DAF3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD8A91E426FD7B6C004DAF3B /* MainTableViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD96AA6F26FCC43A00C9AA43 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DD96AA7026FCC44A00C9AA43 /* Person.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DD96AA7226FCC5EA00C9AA43 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DD96AA7326FCC61200C9AA43 /* MainViewModel.swift */,
+				DD8A91E126FD7AFB004DAF3B /* Dynamic.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,8 +308,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD8A91E526FD7B6C004DAF3B /* MainTableViewController.swift in Sources */,
+				DD96AA7126FCC44A00C9AA43 /* Person.swift in Sources */,
 				DD6CCCE826F0811600C7BA2C /* UIView+addSubviews.swift in Sources */,
-				DD2844AA26EF35C4004FC840 /* ViewController.swift in Sources */,
+				DD2844AA26EF35C4004FC840 /* MainViewController.swift in Sources */,
 				DD372A5D26F0EEAF0033D40A /* ProfileHeaderView.swift in Sources */,
 				DD6CCCEF26F08EB200C7BA2C /* CreateViewController.swift in Sources */,
 				DD868E7026FB56D700D5BE38 /* StringManager.swift in Sources */,
@@ -281,11 +319,13 @@
 				DD2844A626EF35C4004FC840 /* AppDelegate.swift in Sources */,
 				DD6CCCEA26F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift in Sources */,
 				DDC49F1C26F8A829001921C1 /* ReadViewController.swift in Sources */,
+				DD8A91E226FD7AFB004DAF3B /* Dynamic.swift in Sources */,
 				DD2844A826EF35C4004FC840 /* SceneDelegate.swift in Sources */,
 				DD2844B026EF35C5004FC840 /* CheoMooRac.xcdatamodeld in Sources */,
 				DD6CCCE626F080F300C7BA2C /* UITableView+Generic.swift in Sources */,
 				DD6CCCED26F081C600C7BA2C /* MyCardTableViewCell.swift in Sources */,
 				DD372A5A26F0EBC30033D40A /* TextFieldTableViewCell.swift in Sources */,
+				DD96AA7426FCC61200C9AA43 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

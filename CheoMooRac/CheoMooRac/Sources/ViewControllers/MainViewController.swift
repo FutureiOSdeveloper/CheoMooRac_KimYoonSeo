@@ -11,12 +11,14 @@ import UIKit
 import SnapKit
 import Then
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     private let tableView = UITableView()
     
     private var filteredList: [String] = []
     private var arr = ["김윤서", "김루희", "윤예지", "김혜수", "코코", "민재", "잼권이", "리헤이", "노제", "몬익화", "립제이", "잘린이", "엠마", "모아나", "케이데이", "가비", "시미즈zz", "강호동", "이수근", "유재석", "리정" ]
+    
+    private var viewModel: MainViewModelProtocol = MainViewModel()
     
     private var isFiltering: Bool {
         let searchController = self.navigationItem.searchController
@@ -27,7 +29,7 @@ class ViewController: UIViewController {
     
     private var sectionHeaderList: [String] {
         var sectionHeaderList: [String] = []
-        arr = arr.sorted()
+       
         arr.forEach { name in
             sectionHeaderList.append(StringManager.shared.chosungCheck(word: name))
         }
@@ -36,7 +38,16 @@ class ViewController: UIViewController {
     }
     
     private var filterdHeaderList: [String] = []
-
+    
+//    init(with viewModel: MainViewModel) {
+//        self.viewModel = viewModel
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewController()
@@ -49,6 +60,13 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setSearchController()
+    }
+    
+    private func bindViewModel() {
+        viewModel.list.bind { [weak self] _ in
+            guard let self = self else {return}
+            self.tableView.reloadData()
+        }
     }
   
     private func initViewController() {
@@ -68,7 +86,7 @@ class ViewController: UIViewController {
         navigationItem.title = "연락처"
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationController?.navigationBar.prefersLargeTitles = true
-        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.obscuresBackgroundDuringPresentation = false
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonDidTapped))
         
@@ -99,7 +117,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController {
+extension MainViewController {
     @objc
     private func addButtonDidTapped() {
         let createViewController = CreateViewController()
@@ -114,9 +132,10 @@ extension ViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return isFiltering ?  filterdHeaderList.count + 1 : sectionHeaderList.count + 1
+        return viewModel.sectionHeaderList.value.count
+//        return isFiltering ?  filterdHeaderList.count + 1 : sectionHeaderList.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -134,13 +153,13 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0 :
             return self.isFiltering ? 0 : 1
         default:
-            return self.isFiltering ? getSectionArray(at: section, list: filteredList).count:  getSectionArray(at: section, list: arr).count
+            return self.isFiltering ? getSectionArray(at: section, list: viewModel.list.value).count:  getSectionArray(at: section, list: viewModel.list.value).count
         }
     }
     
@@ -160,9 +179,9 @@ extension ViewController: UITableViewDataSource {
             let cell = UITableViewCell()
             
             if self.isFiltering {
-                cell.textLabel?.text = getSectionArray(at: indexPath.section,list: filteredList)[indexPath.row]
+                cell.textLabel?.text = getSectionArray(at: indexPath.section,list: viewModel.list.value)[indexPath.row]
             } else {
-                cell.textLabel?.text = getSectionArray(at: indexPath.section,list: arr)[indexPath.row]
+                cell.textLabel?.text = getSectionArray(at: indexPath.section,list: viewModel.list.value)[indexPath.row]
             }
             
             return cell
@@ -174,19 +193,19 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section != 0 {
-            return isFiltering ?  filterdHeaderList[section-1] : sectionHeaderList[section-1]
+            return isFiltering ?  viewModel.sectionHeaderList.value[section-1] :  viewModel.sectionHeaderList.value[section-1]
         } else {
             return nil
         }
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return sectionHeaderList
+        return  viewModel.sectionHeaderList.value
     }
     
 }
 
-extension ViewController: UISearchResultsUpdating{
+extension MainViewController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         filterdHeaderList.removeAll()
