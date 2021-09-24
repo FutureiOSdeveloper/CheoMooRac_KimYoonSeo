@@ -7,18 +7,8 @@
 
 import UIKit
 
-
 import SnapKit
 import Then
-
-extension UIViewController {
-    func embed(_ viewController: UIViewController) {
-        viewController.willMove(toParent: self)
-        self.addChild(viewController)
-        viewController.didMove(toParent: self)
-    }
-}
-
 
 class MainViewController: UIViewController {
     
@@ -26,6 +16,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let mainViewModel = MainViewModel()
         self.tableViewController = MainTableViewController(with: mainViewModel)
         initViewController()
