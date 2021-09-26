@@ -9,15 +9,19 @@ import UIKit
 
 import SnapKit
 import Then
+import RxSwift
 
 class MainViewController: UIViewController {
     
     private var tableViewController: MainTableViewController!
+  
+    let mainViewModel = MainViewModel()
+    let disposBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mainViewModel = MainViewModel()
+      
         self.tableViewController = MainTableViewController(with: mainViewModel)
         initViewController()
         setLayouts()
@@ -34,17 +38,15 @@ class MainViewController: UIViewController {
     }
     
     private func setSearchController() {
-        let searchController = UISearchController(searchResultsController: nil)
-        navigationItem.searchController = searchController
+      
+        navigationItem.searchController = tableViewController.searchController
         navigationItem.title = "연락처"
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationController?.navigationBar.prefersLargeTitles = true
-        searchController.obscuresBackgroundDuringPresentation = false
+        tableViewController.searchController.obscuresBackgroundDuringPresentation = false
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonDidTapped))
-        
-        searchController.searchResultsUpdater = tableViewController
-        searchController.searchBar.delegate = tableViewController
+       
     }
     
     private func setLayouts() {

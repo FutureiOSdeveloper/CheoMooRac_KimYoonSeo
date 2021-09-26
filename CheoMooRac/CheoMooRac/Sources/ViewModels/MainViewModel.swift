@@ -7,19 +7,19 @@
 
 import Foundation
 
+import RxSwift
+import RxCocoa
+
 protocol MainViewModelInput {
-    func refreshTableView()
-    func searchResults(text: String)
-    func cancelSearch()
+    var refreshControlDidPulled: PublishRelay<Void> {get}
+    var searchBarText: PublishRelay<String?> {get}
+    var cancelButtonDidTapped: PublishRelay<Void> {get}
 }
 
 protocol MainViewModelOutput {
-    var items:  Dynamic<[Person]> {get}
-    var nowRefreshing: Dynamic<Bool> {get}
-    var isFiltering: Dynamic<Bool> {get}
-    
-    var sectionHeaderList: [String] {get}
-    func getSectionPersonArray(at section: Int) -> [Person]
+    var refreshList: Signal<Bool> {get}
+    var filtering: Signal<Bool> {get}
+    var sectionPeopleArray: Signal<[[Person]]> {get}
 }
 
 protocol MainViewModelProtocol : MainViewModelInput, MainViewModelOutput {
@@ -28,69 +28,82 @@ protocol MainViewModelProtocol : MainViewModelInput, MainViewModelOutput {
 }
 
 class MainViewModel: MainViewModelProtocol {
+    
+    var refreshControlDidPulled: PublishRelay<Void> = PublishRelay<Void>()
+    var searchBarText: PublishRelay<String?> = PublishRelay<String?>()
+    var cancelButtonDidTapped: PublishRelay<Void> = PublishRelay()
+
+    var refreshList: Signal<Bool> = Signal.just(false)
+    var filtering: Signal<Bool> = Signal.just(false)
+    var sectionPeopleArray: Signal<[[Person]]> = Signal.just([[]])
+    
     var input: MainViewModelInput { return self }
     var output: MainViewModelOutput { return self }
     
-    //  MARK: - INPUT
-    func refreshTableView() {
-        if !nowRefreshing.value {
-            nowRefreshing.value = true
-            //refreshing logic
-            nowRefreshing.value = false
-        }
-    }
-    
-    func searchResults(text: String) {
-        if text.isEmpty {
-            isFiltering.value = false
-            setTableView()
-        } else {
-            self.sectionHeaderList.removeAll()
-            self.items.value.removeAll()
-            
-            isFiltering.value = true
-            
-            let filteredArr = data.filter { ($0.familyName+$0.firstName).localizedCaseInsensitiveContains(text) }
-            
-            var filterdHeaderList$: [String] = []
-            filteredArr.forEach {
-                filterdHeaderList$.append(StringManager.shared.chosungCheck(word: ($0.familyName+$0.firstName)))
-            }
-            
-            filterdHeaderList$ = Array(Set(filterdHeaderList$)).sorted()
-            filteredData = filteredArr
-            items.value = filteredData
-            sectionHeaderList = filterdHeaderList$
-        }
-    }
-    
-    func cancelSearch() {
-        setTableView()
-        isFiltering.value = false
-    }
-
-   //  MARK: - OUTPUT
-    let items: Dynamic<[Person]> = Dynamic([])
-    let nowRefreshing: Dynamic<Bool> = Dynamic(false)
-    let isFiltering: Dynamic<Bool> = Dynamic(false)
-    
-    func getSectionArray(at section: Int) -> [String]  {
-        return sectionArray(at: section, data: isFiltering.value ? self.filteredData : self.data)
-    }
-    
-    func getSectionPersonArray(at section: Int) -> [Person]  {
-        return sectionArrayPerson(at: section, data: isFiltering.value ? self.filteredData : self.data)
-    }
-    
-    var sectionHeaderList: [String] = []
-    
-    
     init() {
-      setTableView()
+        var sectionHeaderList$: [String] = []
+        var sectionPeopleArray$: [[Person]] = [[]]
+        
+        sectionPeopleArray = searchBarText
+            .map({ text -> Bool in
+                guard let text = text else {return false}
+                if text.isEmpty {
+                    return false
+                } else {
+                    self.text = text
+                    return true
+                }
+            })
+            .map({ [weak self] filtered -> [Person] in
+                guard let self = self else {return []}
+                if filtered {
+                    let filteredArr = self.data.filter { ($0.familyName+$0.firstName).localizedCaseInsensitiveContains(self.text) }
+                    
+                    var filterdHeaderList$: [String] = []
+                    filteredArr.forEach {
+                        filterdHeaderList$.append(StringManager.shared.chosungCheck(word: ($0.familyName+$0.firstName)))
+                    }
+                    
+                    filterdHeaderList$ = Array(Set(filterdHeaderList$)).sorted()
+                    self.filteredData = filteredArr
+                    return self.filteredData
+                } else {
+                    return self.data
+                }
+            })
+            .map({ people in
+                sectionHeaderList$.removeAll()
+                sectionPeopleArray$.removeAll()
+                people.forEach { person in
+                    sectionHeaderList$.append(StringManager.shared.chosungCheck(word: person.familyName + person.firstName))
+                }
+                sectionHeaderList$ = Array(Set(sectionHeaderList$)).sorted()
+                
+                sectionHeaderList$.forEach { sectionHeader in
+                    let list = people.filter {
+                        return StringManager.shared.chosungCheck(word: $0.familyName + $0.firstName) == sectionHeader
+                    }
+                    sectionPeopleArray$.append(list)
+                }
+                return sectionPeopleArray$
+            }).asSignal(onErrorJustReturn: [[]])
+        
+        filtering = searchBarText
+            .map({ text -> Bool in
+                guard let text = text else {return false}
+                if text.isEmpty {
+                    return false
+                } else {
+                    self.text = text
+                    return true
+                }
+            }).asSignal(onErrorJustReturn: false)
+        
     }
     
     //  MARK: - Properties
-    
+    private var text: String = ""
+
     private var filteredData: [Person] = []
     
     private var data =  [Person(firstName: "윤서", familyName: "김", phoneNumber: "010-6515-6030"),
@@ -113,30 +126,5 @@ class MainViewModel: MainViewModelProtocol {
                          Person(firstName: "잼권", familyName: "", phoneNumber: "010-6515-6030")
                          
       ]
-    
-    private func setTableView() {
-        self.items.value = data
-        var sectionHeaderList$: [String] = []
-        self.items.value.forEach { person in
-            sectionHeaderList$.append(StringManager.shared.chosungCheck(word: person.familyName + person.firstName))
-        }
-        self.sectionHeaderList = Array(Set(sectionHeaderList$)).sorted()
-    }
-    
-    private func sectionArray(at section: Int, data: [Person]) -> [String] {
-        let list = data.filter {
-            return StringManager.shared.chosungCheck(word: $0.familyName + $0.firstName) == sectionHeaderList[section-1]
-        }.map { person in
-            return person.familyName + person.firstName
-        }
-        return list
-    }
-    
-    private func sectionArrayPerson(at section: Int, data: [Person]) -> [Person] {
-        let list = data.filter {
-            return StringManager.shared.chosungCheck(word: $0.familyName + $0.firstName) == sectionHeaderList[section-1]
-        }
-        return list
-    }
 
 }

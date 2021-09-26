@@ -7,11 +7,20 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 class MainTableViewController: UITableViewController {
     
     private var viewModel: MainViewModelProtocol
     
     private var isFiltering: Bool?
+    
+    private var disposeBag = DisposeBag()
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    private var data: [[Person]] = [[]]
     
     init(with viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -24,6 +33,10 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        
         bindViewModel()
         setTableView()
         setRefreshControl()
@@ -34,23 +47,23 @@ class MainTableViewController: UITableViewController {
     }
     
     private func bindViewModel() {
-        viewModel.output.items.bind { [weak self] _ in
-            guard let self = self else {return}
-            DispatchQueue.main.async {
+        searchController.searchBar.rx.text
+            .bind(to: viewModel.input.searchBarText)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.filtering
+            .emit(onNext:{ value in
+                self.isFiltering = value
+            }).disposed(by: disposeBag)
+        
+        viewModel.output.sectionPeopleArray
+            .emit(onNext:{ data in
+                self.data.removeAll()
+                self.data = data
+//
                 self.tableView.reloadData()
-            }
-        }
+            }).disposed(by: disposeBag)
         
-        viewModel.output.isFiltering.bind { [weak self] _ in
-            guard let self = self else {return}
-            self.isFiltering = self.viewModel.isFiltering.value
-        }
-        
-        
-        viewModel.output.nowRefreshing.bind { [weak self] _ in
-            guard let self = self else {return}
-            self.refreshControl?.endRefreshing()
-        }
     }
     
     private func setRefreshControl() {
@@ -63,7 +76,7 @@ class MainTableViewController: UITableViewController {
 extension MainTableViewController {
     @objc
     private func tableViewDidPulled(refresh: UIRefreshControl) {
-        viewModel.input.refreshTableView()
+//        viewModel.input.refreshTableView()
     }
 }
 
@@ -71,78 +84,84 @@ extension MainTableViewController {
 extension MainTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let person = viewModel.output.getSectionPersonArray(at: indexPath.section)[indexPath.row]
-        
-        let contactDetailViewModel = ContactDetailViewModel(person: person)
-        navigationController?.pushViewController(ContactDetailViewController(with: contactDetailViewModel), animated: true)
+
+//        let person = viewModel.output.getSectionPersonArray(at: indexPath.section)[indexPath.row]
+//
+//        let contactDetailViewModel = ContactDetailViewModel(person: person)
+//        navigationController?.pushViewController(ContactDetailViewController(with: contactDetailViewModel), animated: true)
     }
-    
+//
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0:
-            return 100
-        default:
+//        switch indexPath.section {
+//        case 0:
+//            return 100
+//        default:
             return 48
-        }
+//        }
     }
 }
 
 // MARK: - Data Source
 extension MainTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.output.sectionHeaderList.count + 1
+        return data.count
+//        return data.count + 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            guard let isFiltering = isFiltering else {return 1}
-            return isFiltering ? 0 : 1
-        default:
-            return viewModel.output.getSectionPersonArray(at: section).count
-        }
+        return data[section].count
+//        switch section {
+//        case 0:
+//            guard let isFiltering = isFiltering else {return 1}
+//            return isFiltering ? 0 : 1
+//        default:
+//            return data[section-1].count
+//        }
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
-            let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MyCardTableViewCell
-            return cell
-            
-        case 1...viewModel.sectionHeaderList.count:
-            let cell = UITableViewCell()
-            let person = viewModel.output.getSectionPersonArray(at: indexPath.section)[indexPath.row]
-            cell.textLabel?.text = person.familyName + person.firstName
-            return cell
+        let cell = UITableViewCell()
+        cell.textLabel?.text = data[indexPath.section][indexPath.row].familyName + data[indexPath.section][indexPath.row].firstName
+        return cell
         
-        default:
-            return UITableViewCell()
-        }
+//        switch indexPath.section {
+//        case 0:
+//            let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MyCardTableViewCell
+//            return cell
+//
+//        case 1...data[indexPath.section-1].count:
+//            let cell = UITableViewCell()
+//            cell.textLabel?.text = data[indexPath.section-1][indexPath.row].familyName + data[indexPath.section-1][indexPath.row].firstName
+//            return cell
+//
+//        default:
+//            return UITableViewCell()
+//        }
     }
-    
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section != 0 {
-            return viewModel.output.sectionHeaderList[section - 1]
-        } else {
-            return nil
-        }
+        return "\(section)"
+//        if section != 0 {
+//            return "ㄱ"
+//        } else {
+//            return nil
+//        }
     }
-    
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return viewModel.output.sectionHeaderList
-    }
+
+//    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+//        return viewModel.output.sectionHeaderList
+//    }
 }
 
 extension MainTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        viewModel.input.searchResults(text: text)
+        
     }
 }
 
 extension MainTableViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.input.cancelSearch()
+//        viewModel.input.cancelSearch()
     }
 }
