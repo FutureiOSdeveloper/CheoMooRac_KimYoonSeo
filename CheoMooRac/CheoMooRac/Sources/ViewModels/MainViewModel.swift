@@ -17,9 +17,9 @@ protocol MainViewModelInput {
 }
 
 protocol MainViewModelOutput {
-    var refreshList: Signal<Bool> {get}
-    var filtering: Signal<Bool> {get}
-    var sectionPeopleArray: Signal<[[Person]]> {get}
+    var filtering: Signal<Bool>? {get}
+    var sectionPeopleArray: Signal<[[Person]]>? {get}
+    var sectionPeopleArrayInit: Signal<[[Person]]>?{get}
 }
 
 protocol MainViewModelProtocol : MainViewModelInput, MainViewModelOutput {
@@ -33,9 +33,10 @@ class MainViewModel: MainViewModelProtocol {
     var searchBarText: PublishRelay<String?> = PublishRelay<String?>()
     var cancelButtonDidTapped: PublishRelay<Void> = PublishRelay()
 
-    var refreshList: Signal<Bool> = Signal.just(false)
-    var filtering: Signal<Bool> = Signal.just(false)
-    var sectionPeopleArray: Signal<[[Person]]> = Signal.just([[]])
+//    var refreshList: Signal<Bool> = Signal.just(false)
+    var filtering: Signal<Bool>?
+    var sectionPeopleArray: Signal<[[Person]]>?
+    var sectionPeopleArrayInit: Signal<[[Person]]>?
     
     var input: MainViewModelInput { return self }
     var output: MainViewModelOutput { return self }
@@ -44,36 +45,11 @@ class MainViewModel: MainViewModelProtocol {
         var sectionHeaderList$: [String] = []
         var sectionPeopleArray$: [[Person]] = [[]]
         
-        sectionPeopleArray = searchBarText
-            .map({ text -> Bool in
-                guard let text = text else {return false}
-                if text.isEmpty {
-                    return false
-                } else {
-                    self.text = text
-                    return true
-                }
-            })
-            .map({ [weak self] filtered -> [Person] in
-                guard let self = self else {return []}
-                if filtered {
-                    let filteredArr = self.data.filter { ($0.familyName+$0.firstName).localizedCaseInsensitiveContains(self.text) }
-                    
-                    var filterdHeaderList$: [String] = []
-                    filteredArr.forEach {
-                        filterdHeaderList$.append(StringManager.shared.chosungCheck(word: ($0.familyName+$0.firstName)))
-                    }
-                    
-                    filterdHeaderList$ = Array(Set(filterdHeaderList$)).sorted()
-                    self.filteredData = filteredArr
-                    return self.filteredData
-                } else {
-                    return self.data
-                }
-            })
+        sectionPeopleArrayInit = Signal.just(self.data)
             .map({ people in
                 sectionHeaderList$.removeAll()
                 sectionPeopleArray$.removeAll()
+                
                 people.forEach { person in
                     sectionHeaderList$.append(StringManager.shared.chosungCheck(word: person.familyName + person.firstName))
                 }
@@ -86,10 +62,12 @@ class MainViewModel: MainViewModelProtocol {
                     sectionPeopleArray$.append(list)
                 }
                 return sectionPeopleArray$
-            }).asSignal(onErrorJustReturn: [[]])
+                
+            }).asSignal(onErrorJustReturn: [data])
         
         filtering = searchBarText
-            .map({ text -> Bool in
+            .map({ [weak self] text -> Bool in
+                guard let self = self else {return false}
                 guard let text = text else {return false}
                 if text.isEmpty {
                     return false
@@ -99,6 +77,44 @@ class MainViewModel: MainViewModelProtocol {
                 }
             }).asSignal(onErrorJustReturn: false)
         
+        sectionPeopleArray = searchBarText
+            .map({ [weak self] text -> Bool in
+                guard let self = self else {return false}
+                guard let text = text else {return false}
+                if text.isEmpty {
+                    return false
+                } else {
+                    self.text = text
+                    return true
+                }
+            })
+            .map({ [weak self] filtered -> [Person] in
+                guard let self = self else {return []}
+                if filtered {
+                        self.filteredData = self.data.filter {($0.familyName+$0.firstName).localizedCaseInsensitiveContains(self.text) }
+                    return self.filteredData
+                } else {
+                    return self.data
+                }
+            })
+            .map({ people in
+                sectionHeaderList$.removeAll()
+                sectionPeopleArray$.removeAll()
+                
+                people.forEach { person in
+                    sectionHeaderList$.append(StringManager.shared.chosungCheck(word: person.familyName + person.firstName))
+                }
+                sectionHeaderList$ = Array(Set(sectionHeaderList$)).sorted()
+                
+                sectionHeaderList$.forEach { sectionHeader in
+                    let list = people.filter {
+                        return StringManager.shared.chosungCheck(word: $0.familyName + $0.firstName) == sectionHeader
+                    }
+                    sectionPeopleArray$.append(list)
+                }
+                return sectionPeopleArray$
+                
+            }).asSignal(onErrorJustReturn: [data])
     }
     
     //  MARK: - Properties

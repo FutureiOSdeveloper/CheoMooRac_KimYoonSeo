@@ -33,10 +33,7 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        
+        searchController.obscuresBackgroundDuringPresentation = false
         bindViewModel()
         setTableView()
         setRefreshControl()
@@ -47,23 +44,28 @@ class MainTableViewController: UITableViewController {
     }
     
     private func bindViewModel() {
+        viewModel.output.sectionPeopleArrayInit?
+            .emit(onNext:{ data in
+                self.data.removeAll()
+                self.data = data
+                self.tableView.reloadData()
+            }).disposed(by: disposeBag)
+        
         searchController.searchBar.rx.text
             .bind(to: viewModel.input.searchBarText)
             .disposed(by: disposeBag)
         
-        viewModel.output.filtering
+        viewModel.output.filtering?
             .emit(onNext:{ value in
                 self.isFiltering = value
             }).disposed(by: disposeBag)
         
-        viewModel.output.sectionPeopleArray
+        viewModel.output.sectionPeopleArray?
             .emit(onNext:{ data in
                 self.data.removeAll()
                 self.data = data
-//
                 self.tableView.reloadData()
             }).disposed(by: disposeBag)
-        
     }
     
     private func setRefreshControl() {
@@ -85,83 +87,61 @@ extension MainTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-//        let person = viewModel.output.getSectionPersonArray(at: indexPath.section)[indexPath.row]
-//
-//        let contactDetailViewModel = ContactDetailViewModel(person: person)
-//        navigationController?.pushViewController(ContactDetailViewController(with: contactDetailViewModel), animated: true)
+        let person = data[indexPath.section-1][indexPath.row]
+
+        let contactDetailViewModel = ContactDetailViewModel(person: person)
+        navigationController?.pushViewController(ContactDetailViewController(with: contactDetailViewModel), animated: true)
     }
-//
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch indexPath.section {
-//        case 0:
-//            return 100
-//        default:
+        switch indexPath.section {
+        case 0:
+            return 100
+        default:
             return 48
-//        }
+        }
     }
 }
 
 // MARK: - Data Source
 extension MainTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
-//        return data.count + 1
+        return data.count + 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].count
-//        switch section {
-//        case 0:
-//            guard let isFiltering = isFiltering else {return 1}
-//            return isFiltering ? 0 : 1
-//        default:
-//            return data[section-1].count
-//        }
+        
+        switch section {
+        case 0:
+            guard let isFiltering = isFiltering else {return 1}
+            return isFiltering ? 0 : 1
+        default:
+            return data[section-1].count
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = data[indexPath.section][indexPath.row].familyName + data[indexPath.section][indexPath.row].firstName
-        return cell
         
-//        switch indexPath.section {
-//        case 0:
-//            let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MyCardTableViewCell
-//            return cell
-//
-//        case 1...data[indexPath.section-1].count:
-//            let cell = UITableViewCell()
-//            cell.textLabel?.text = data[indexPath.section-1][indexPath.row].familyName + data[indexPath.section-1][indexPath.row].firstName
-//            return cell
-//
-//        default:
-//            return UITableViewCell()
-//        }
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MyCardTableViewCell
+            return cell
+        default:
+            let cell = UITableViewCell()
+            cell.textLabel?.text = data[indexPath.section-1][indexPath.row].familyName + data[indexPath.section-1][indexPath.row].firstName
+            return cell
+        }
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(section)"
-//        if section != 0 {
-//            return "ㄱ"
-//        } else {
-//            return nil
-//        }
+        if section != 0 {
+            return StringManager.shared.chosungCheck(word: data[section-1][0].familyName + data[section-1][0].firstName)
+        } else {
+            return nil
+        }
     }
 
-//    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-//        return viewModel.output.sectionHeaderList
-//    }
-}
-
-extension MainTableViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
-        
-    }
-}
-
-extension MainTableViewController: UISearchBarDelegate {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        viewModel.input.cancelSearch()
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return Jamo.CHO
     }
 }
