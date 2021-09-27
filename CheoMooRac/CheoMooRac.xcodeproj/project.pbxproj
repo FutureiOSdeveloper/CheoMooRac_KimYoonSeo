@@ -17,6 +17,7 @@
 		DD372A5A26F0EBC30033D40A /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372A5926F0EBC30033D40A /* TextFieldTableViewCell.swift */; };
 		DD372A5D26F0EEAF0033D40A /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372A5C26F0EEAF0033D40A /* ProfileHeaderView.swift */; };
 		DD372A5F26F0FD760033D40A /* UIButton+setBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372A5E26F0FD760033D40A /* UIButton+setBackgroundColor.swift */; };
+		DD67F82F27019CF300ABBDA9 /* PersonListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67F82E27019CF300ABBDA9 /* PersonListModel.swift */; };
 		DD6CCCC826F072A700C7BA2C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCC726F072A700C7BA2C /* SnapKit */; };
 		DD6CCCDC26F0792900C7BA2C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCDB26F0792900C7BA2C /* RxSwift */; };
 		DD6CCCDE26F0792900C7BA2C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DD6CCCDD26F0792900C7BA2C /* RxCocoa */; };
@@ -28,7 +29,6 @@
 		DD6CCCED26F081C600C7BA2C /* MyCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */; };
 		DD6CCCEF26F08EB200C7BA2C /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */; };
 		DD868E7026FB56D700D5BE38 /* StringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD868E6F26FB56D700D5BE38 /* StringManager.swift */; };
-		DD8A91E226FD7AFB004DAF3B /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A91E126FD7AFB004DAF3B /* Dynamic.swift */; };
 		DD8A91E526FD7B6C004DAF3B /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A91E426FD7B6C004DAF3B /* MainTableViewController.swift */; };
 		DD8A91E726FD94FA004DAF3B /* UIViewController+embed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A91E626FD94FA004DAF3B /* UIViewController+embed.swift */; };
 		DD8A91EA26FDC6AB004DAF3B /* ContactDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A91E926FDC6AB004DAF3B /* ContactDetailTableViewController.swift */; };
@@ -51,13 +51,13 @@
 		DD372A5926F0EBC30033D40A /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		DD372A5C26F0EEAF0033D40A /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		DD372A5E26F0FD760033D40A /* UIButton+setBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+setBackgroundColor.swift"; sourceTree = "<group>"; };
+		DD67F82E27019CF300ABBDA9 /* PersonListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListModel.swift; sourceTree = "<group>"; };
 		DD6CCCE526F080F300C7BA2C /* UITableView+Generic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Generic.swift"; sourceTree = "<group>"; };
 		DD6CCCE726F0811600C7BA2C /* UIView+addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addSubviews.swift"; sourceTree = "<group>"; };
 		DD6CCCE926F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+addArrangedSubviews.swift"; sourceTree = "<group>"; };
 		DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardTableViewCell.swift; sourceTree = "<group>"; };
 		DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		DD868E6F26FB56D700D5BE38 /* StringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringManager.swift; sourceTree = "<group>"; };
-		DD8A91E126FD7AFB004DAF3B /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		DD8A91E426FD7B6C004DAF3B /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		DD8A91E626FD94FA004DAF3B /* UIViewController+embed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+embed.swift"; sourceTree = "<group>"; };
 		DD8A91E926FDC6AB004DAF3B /* ContactDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +122,6 @@
 		DD2844BD26EF35EB004FC840 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DD8A91E826FD9523004DAF3B /* Dynamic */,
 				DD8A91E326FD7B3B004DAF3B /* Views */,
 				DD96AA7226FCC5EA00C9AA43 /* ViewModels */,
 				DD96AA6F26FCC43A00C9AA43 /* Models */,
@@ -218,18 +217,11 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		DD8A91E826FD9523004DAF3B /* Dynamic */ = {
-			isa = PBXGroup;
-			children = (
-				DD8A91E126FD7AFB004DAF3B /* Dynamic.swift */,
-			);
-			path = Dynamic;
-			sourceTree = "<group>";
-		};
 		DD96AA6F26FCC43A00C9AA43 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				DD96AA7026FCC44A00C9AA43 /* Person.swift */,
+				DD67F82E27019CF300ABBDA9 /* PersonListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,12 +329,12 @@
 				DD2844A626EF35C4004FC840 /* AppDelegate.swift in Sources */,
 				DD6CCCEA26F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift in Sources */,
 				DDC49F1C26F8A829001921C1 /* ContactDetailViewController.swift in Sources */,
-				DD8A91E226FD7AFB004DAF3B /* Dynamic.swift in Sources */,
 				DD2844A826EF35C4004FC840 /* SceneDelegate.swift in Sources */,
 				DD2844B026EF35C5004FC840 /* CheoMooRac.xcdatamodeld in Sources */,
 				DD6CCCE626F080F300C7BA2C /* UITableView+Generic.swift in Sources */,
 				DD8A91ED26FDCA4E004DAF3B /* ContactDetailViewModel.swift in Sources */,
 				DD6CCCED26F081C600C7BA2C /* MyCardTableViewCell.swift in Sources */,
+				DD67F82F27019CF300ABBDA9 /* PersonListModel.swift in Sources */,
 				DD372A5A26F0EBC30033D40A /* TextFieldTableViewCell.swift in Sources */,
 				DD96AA7426FCC61200C9AA43 /* MainViewModel.swift in Sources */,
 				DD8A91EA26FDC6AB004DAF3B /* ContactDetailTableViewController.swift in Sources */,

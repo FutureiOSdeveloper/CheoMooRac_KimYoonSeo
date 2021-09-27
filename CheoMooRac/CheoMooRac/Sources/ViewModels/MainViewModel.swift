@@ -41,11 +41,13 @@ class MainViewModel: MainViewModelProtocol {
     var input: MainViewModelInput { return self }
     var output: MainViewModelOutput { return self }
     
-    init() {
+    init(with model: PersonListModel) {
         var sectionHeaderList$: [String] = []
         var sectionPeopleArray$: [[Person]] = [[]]
+        var searchText: String = ""
+        var filteredData: [Person] = []
         
-        sectionPeopleArrayInit = Signal.just(self.data)
+        sectionPeopleArrayInit = Signal.just(model.getPersonList())
             .map({ people in
                 sectionHeaderList$.removeAll()
                 sectionPeopleArray$.removeAll()
@@ -63,38 +65,35 @@ class MainViewModel: MainViewModelProtocol {
                 }
                 return sectionPeopleArray$
                 
-            }).asSignal(onErrorJustReturn: [data])
+            }).asSignal(onErrorJustReturn: [model.getPersonList()])
         
         filtering = searchBarText
-            .map({ [weak self] text -> Bool in
-                guard let self = self else {return false}
+            .map({ text -> Bool in
                 guard let text = text else {return false}
                 if text.isEmpty {
                     return false
                 } else {
-                    self.text = text
+                    searchText = text
                     return true
                 }
             }).asSignal(onErrorJustReturn: false)
         
         sectionPeopleArray = searchBarText
-            .map({ [weak self] text -> Bool in
-                guard let self = self else {return false}
+            .map({ text -> Bool in
                 guard let text = text else {return false}
                 if text.isEmpty {
                     return false
                 } else {
-                    self.text = text
+                    searchText = text
                     return true
                 }
             })
-            .map({ [weak self] filtered -> [Person] in
-                guard let self = self else {return []}
+            .map({ filtered -> [Person] in
                 if filtered {
-                        self.filteredData = self.data.filter {($0.familyName+$0.firstName).localizedCaseInsensitiveContains(self.text) }
-                    return self.filteredData
+                        filteredData = model.getPersonList().filter {($0.familyName+$0.firstName).localizedCaseInsensitiveContains(searchText) }
+                    return filteredData
                 } else {
-                    return self.data
+                    return model.getPersonList()
                 }
             })
             .map({ people in
@@ -114,33 +113,7 @@ class MainViewModel: MainViewModelProtocol {
                 }
                 return sectionPeopleArray$
                 
-            }).asSignal(onErrorJustReturn: [data])
+            }).asSignal(onErrorJustReturn: [[]])
     }
-    
-    //  MARK: - Properties
-    private var text: String = ""
-
-    private var filteredData: [Person] = []
-    
-    private var data =  [Person(firstName: "윤서", familyName: "김", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "루희", familyName: "김", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "예지", familyName: "윤", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "혜수", familyName: "김", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "리헤이", familyName: "", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "제", familyName: "노", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "엠마", familyName: "", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "모아나", familyName: "", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "민재", familyName: "곽", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "케이데이", familyName: "", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "가비", familyName: "", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "시미즈", familyName: "", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "호동", familyName: "강", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "재석", familyName: "유", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "리정", familyName: "", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "몬익화", familyName: "", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "코코", familyName: "", phoneNumber: "010-6515-6030"),
-                         Person(firstName: "잼권", familyName: "", phoneNumber: "010-6515-6030")
-                         
-      ]
 
 }

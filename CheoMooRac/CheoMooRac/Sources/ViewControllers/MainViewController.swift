@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mainViewModel = MainViewModel()
+        let mainViewModel = MainViewModel(with: PersonListModel())
         self.tableViewController = MainTableViewController(with: mainViewModel)
         initViewController()
         setLayouts()
