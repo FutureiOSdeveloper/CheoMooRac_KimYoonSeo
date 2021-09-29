@@ -19,7 +19,7 @@ protocol MainViewModelInput {
 protocol MainViewModelOutput {
     var filtering: Signal<Bool>? {get}
     var sectionPeopleArray: Signal<[[Person]]>? {get}
-    var sectionPeopleArrayInit: Signal<[[Person]]>?{get}
+    var viewDidLoad: Signal<[[Person]]>?{get}
 }
 
 protocol MainViewModelProtocol : MainViewModelInput, MainViewModelOutput {
@@ -36,7 +36,7 @@ class MainViewModel: MainViewModelProtocol {
 //    var refreshList: Signal<Bool> = Signal.just(false)
     var filtering: Signal<Bool>?
     var sectionPeopleArray: Signal<[[Person]]>?
-    var sectionPeopleArrayInit: Signal<[[Person]]>?
+    var viewDidLoad: Signal<[[Person]]>?
     
     var input: MainViewModelInput { return self }
     var output: MainViewModelOutput { return self }
@@ -47,7 +47,7 @@ class MainViewModel: MainViewModelProtocol {
         var searchText: String = ""
         var filteredData: [Person] = []
         
-        sectionPeopleArrayInit = Signal.just(model.getPersonList())
+        viewDidLoad = Signal.just(model.getPersonList())
             .map({ people in
                 sectionHeaderList$.removeAll()
                 sectionPeopleArray$.removeAll()

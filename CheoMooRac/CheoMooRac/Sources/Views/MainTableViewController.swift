@@ -44,7 +44,7 @@ class MainTableViewController: UITableViewController {
     }
     
     private func bindViewModel() {
-        viewModel.output.sectionPeopleArrayInit?
+        viewModel.output.viewDidLoad?
             .emit(onNext:{ data in
                 self.data.removeAll()
                 self.data = data
