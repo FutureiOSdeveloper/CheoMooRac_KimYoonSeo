@@ -44,13 +44,6 @@ class MainTableViewController: UITableViewController {
     }
     
     private func bindViewModel() {
-        viewModel.output.viewDidLoad?
-            .emit(onNext:{ data in
-                self.data.removeAll()
-                self.data = data
-                self.tableView.reloadData()
-            }).disposed(by: disposeBag)
-        
         searchController.searchBar.rx.text
             .bind(to: viewModel.input.searchBarText)
             .disposed(by: disposeBag)
