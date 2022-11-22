@@ -136,6 +136,10 @@ extension ViewController: UITableViewDataSource {
         guard section != 0 else {
             return self.isFiltering ? 0 : 1
         }
+
+        dump(filteredList)
+        dump(getSectionArray(at: section, list: filteredList).count)
+
         return self.isFiltering
         ? getSectionArray(at: section, list: filteredList).count
         : getSectionArray(at: section, list: personList).count
@@ -143,7 +147,9 @@ extension ViewController: UITableViewDataSource {
     
     func getSectionArray(at section: Int, list: [Person]) -> [Person] {
         return list.filter {
-            return StringManager.shared.chosungCheck(word: $0.full) == sectionHeaderList[section-1]
+            return isFiltering
+            ? StringManager.shared.chosungCheck(word: $0.full) == filterdHeaderList[section-1]
+            : StringManager.shared.chosungCheck(word: $0.full) == sectionHeaderList[section-1]
         }
     }
     
@@ -194,19 +200,14 @@ extension ViewController: UISearchResultsUpdating{
         filteredList.removeAll()
 
         filteredList = personList.filter {
-            return StringManager.shared.isChosung(word: text)
-            ? StringManager.shared.getStringConsonant(string: $0.full, consonantType: .Initial).contains(text)
-            || $0.full.localizedCaseInsensitiveContains(text)
-            : $0.full.localizedCaseInsensitiveContains(text)
+            return StringManager.shared.getStringConsonant(string: $0.full, consonantType: .Initial).contains(text) || $0.full.contains(text)
         }
+
         filteredList.forEach { person in
             filterdHeaderList.append(StringManager.shared.chosungCheck(word: person.full))
         }
-        
-        filterdHeaderList = Array(Set(filterdHeaderList)).sorted()
-        
-        dump(filteredList)
-        dump(isFiltering)
+
+        filterdHeaderList = Array(Set(filterdHeaderList)).quickSort()
         
         tableView.reloadData()
     }
