@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     
     private let tableView = UITableView()
     
-    private var filteredList: [String] = []
-    private var arr = ["김윤서", "김루희", "윤예지", "김혜수", "코코", "민재", "잼권이", "리헤이", "노제", "몬익화", "립제이", "잘린이", "엠마", "모아나", "케이데이", "가비", "시미즈zz", "강호동", "이수근", "유재석", "리정" ]
+    private var filteredList: [Person] = []
+    private var personList = PersonList.shared.getPersonList()
     
     private var isFiltering: Bool {
         let searchController = self.navigationItem.searchController
@@ -27,9 +27,9 @@ class ViewController: UIViewController {
     
     private var sectionHeaderList: [String] {
         var sectionHeaderList: [String] = []
-        arr = arr.sorted()
-        arr.forEach { name in
-            sectionHeaderList.append(StringManager.shared.chosungCheck(word: name))
+        personList = personList.sorted()
+        personList.forEach { person in
+            sectionHeaderList.append(StringManager.shared.chosungCheck(word: person.full))
         }
         
         return Array(Set(sectionHeaderList)).sorted()
@@ -42,8 +42,6 @@ class ViewController: UIViewController {
         initViewController()
         setLayouts()
         setTableView()
-        setRefreshControl()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,12 +52,6 @@ class ViewController: UIViewController {
     private func initViewController() {
         title = "연락처"
         view.backgroundColor = .white
-    }
-    
-    private func setRefreshControl() {
-        let refresh = UIRefreshControl()
-        refresh.addTarget(self, action: #selector(tableViewDidPulled(refresh:)), for: .valueChanged)
-        tableView.refreshControl = refresh
     }
     
     private func setSearchController() {
@@ -103,23 +95,22 @@ extension ViewController {
     @objc
     private func addButtonDidTapped() {
         let createViewController = CreateViewController()
-        let navCreateViewController: UINavigationController = UINavigationController(rootViewController: createViewController)
+        let navCreateViewController = UINavigationController(rootViewController: createViewController)
         present(navCreateViewController, animated: true, completion: nil)
-    }
-    
-    @objc
-    private func tableViewDidPulled(refresh: UIRefreshControl) {
-        refresh.endRefreshing()
-        tableView.reloadData()
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return isFiltering ?  filterdHeaderList.count + 1 : sectionHeaderList.count + 1
+        return isFiltering
+        ? filterdHeaderList.count + 1
+        : sectionHeaderList.count + 1
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
         switch indexPath.section {
         case 0:
             return 100
@@ -128,56 +119,65 @@ extension ViewController: UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
         tableView.deselectRow(at: indexPath, animated: true)
         navigationController?.pushViewController(ReadViewController(), animated: true)
     }
 }
 
 extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0 :
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        guard section != 0 else {
             return self.isFiltering ? 0 : 1
-        default:
-            return self.isFiltering ? getSectionArray(at: section, list: filteredList).count:  getSectionArray(at: section, list: arr).count
         }
+        return self.isFiltering
+        ? getSectionArray(at: section, list: filteredList).count
+        : getSectionArray(at: section, list: personList).count
     }
     
-    func getSectionArray(at section: Int, list: [String]) -> [String] {
+    func getSectionArray(at section: Int, list: [Person]) -> [Person] {
         return list.filter {
-            return StringManager.shared.chosungCheck(word: $0) == sectionHeaderList[section-1]
+            return StringManager.shared.chosungCheck(word: $0.full) == sectionHeaderList[section-1]
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+
+        guard indexPath.section != 0 else {
             let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MyCardTableViewCell
             return cell
-            
-        case 1...sectionHeaderList.count:
-            let cell = UITableViewCell()
-            
-            if self.isFiltering {
-                cell.textLabel?.text = getSectionArray(at: indexPath.section,list: filteredList)[indexPath.row]
-            } else {
-                cell.textLabel?.text = getSectionArray(at: indexPath.section,list: arr)[indexPath.row]
-            }
-            
-            return cell
-        
-        default:
-            return UITableViewCell()
         }
+
+        let cell = UITableViewCell()
+
+        let text = isFiltering
+        ? getSectionArray(at: indexPath.section, list: filteredList)[indexPath.row].full
+        : getSectionArray(at: indexPath.section, list: personList)[indexPath.row].full
+
+        cell.textLabel?.text = text
+
+        return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section != 0 {
-            return isFiltering ?  filterdHeaderList[section-1] : sectionHeaderList[section-1]
-        } else {
-            return nil
-        }
+    func tableView(
+        _ tableView: UITableView,
+        titleForHeaderInSection section: Int
+    ) -> String? {
+
+        guard section != 0 else { return nil }
+
+        return isFiltering
+        ? filterdHeaderList[section-1]
+        : sectionHeaderList[section-1]
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
@@ -189,17 +189,24 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
+
         filterdHeaderList.removeAll()
         filteredList.removeAll()
-        
-        filteredList = arr.filter { $0.localizedCaseInsensitiveContains(text) }
-        filteredList.forEach { name in
-            filterdHeaderList.append(StringManager.shared.chosungCheck(word: name))
+
+        filteredList = personList.filter {
+            return StringManager.shared.isChosung(word: text)
+            ? StringManager.shared.getStringConsonant(string: $0.full, consonantType: .Initial).contains(text)
+            || $0.full.localizedCaseInsensitiveContains(text)
+            : $0.full.localizedCaseInsensitiveContains(text)
+        }
+        filteredList.forEach { person in
+            filterdHeaderList.append(StringManager.shared.chosungCheck(word: person.full))
         }
         
         filterdHeaderList = Array(Set(filterdHeaderList)).sorted()
         
         dump(filteredList)
+        dump(isFiltering)
         
         tableView.reloadData()
     }

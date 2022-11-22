@@ -28,6 +28,8 @@
 		DD6CCCED26F081C600C7BA2C /* MyCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */; };
 		DD6CCCEF26F08EB200C7BA2C /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */; };
 		DD868E7026FB56D700D5BE38 /* StringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD868E6F26FB56D700D5BE38 /* StringManager.swift */; };
+		DDA86CCD292CD7A90042DDA9 /* TimeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA86CCC292CD7A90042DDA9 /* TimeSort.swift */; };
+		DDA86CD0292CD8B50042DDA9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA86CCF292CD8B50042DDA9 /* Person.swift */; };
 		DDC49F1C26F8A829001921C1 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC49F1B26F8A829001921C1 /* ReadViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,8 @@
 		DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardTableViewCell.swift; sourceTree = "<group>"; };
 		DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		DD868E6F26FB56D700D5BE38 /* StringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringManager.swift; sourceTree = "<group>"; };
+		DDA86CCC292CD7A90042DDA9 /* TimeSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSort.swift; sourceTree = "<group>"; };
+		DDA86CCF292CD8B50042DDA9 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DDC49F1B26F8A829001921C1 /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +112,8 @@
 		DD2844BD26EF35EB004FC840 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				DDA86CCE292CD8940042DDA9 /* Person */,
+				DDA86CCB292CD7A10042DDA9 /* Algorithm */,
 				DD868E6E26FB56C900D5BE38 /* Manager */,
 				DD372A5B26F0EE2C0033D40A /* Headers */,
 				DD6CCCEB26F081A700C7BA2C /* Cells */,
@@ -188,6 +194,22 @@
 				DD868E6F26FB56D700D5BE38 /* StringManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		DDA86CCB292CD7A10042DDA9 /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				DDA86CCC292CD7A90042DDA9 /* TimeSort.swift */,
+			);
+			path = Algorithm;
+			sourceTree = "<group>";
+		};
+		DDA86CCE292CD8940042DDA9 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				DDA86CCF292CD8B50042DDA9 /* Person.swift */,
+			);
+			path = Person;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,11 +302,13 @@
 				DD372A5F26F0FD760033D40A /* UIButton+setBackgroundColor.swift in Sources */,
 				DD2844A626EF35C4004FC840 /* AppDelegate.swift in Sources */,
 				DD6CCCEA26F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift in Sources */,
+				DDA86CCD292CD7A90042DDA9 /* TimeSort.swift in Sources */,
 				DDC49F1C26F8A829001921C1 /* ReadViewController.swift in Sources */,
 				DD2844A826EF35C4004FC840 /* SceneDelegate.swift in Sources */,
 				DD2844B026EF35C5004FC840 /* CheoMooRac.xcdatamodeld in Sources */,
 				DD6CCCE626F080F300C7BA2C /* UITableView+Generic.swift in Sources */,
 				DD6CCCED26F081C600C7BA2C /* MyCardTableViewCell.swift in Sources */,
+				DDA86CD0292CD8B50042DDA9 /* Person.swift in Sources */,
 				DD372A5A26F0EBC30033D40A /* TextFieldTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
