@@ -28,7 +28,7 @@ extension Person: Comparable {
 struct PersonList {
     static let shared = PersonList()
 
-    private var data: [Person]?
+    private var data: [Person]
 
     private init() {
         self.data = [Person(firstName: "윤서", familyName: "김", phoneNumber: "010-7777-7777"),
@@ -59,5 +59,9 @@ struct PersonList {
 
     func getPersonList() -> [Person]{
         return data ?? []
+    }
+
+    mutating func append(_ person: Person) {
+        data.append(person)
     }
 }

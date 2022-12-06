@@ -9,7 +9,7 @@ import UIKit
 
 class TextFieldTableViewCell: UITableViewCell,Reusable {
     
-    private let textField = UITextField().then {
+    let textField = UITextField().then {
         $0.borderStyle = .none
         $0.textColor = .black
     }

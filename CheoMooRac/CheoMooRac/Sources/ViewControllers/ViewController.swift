@@ -12,12 +12,12 @@ import SnapKit
 import Then
 
 class ViewController: UIViewController {
-    
+
     private let tableView = UITableView()
     
     private var filteredList: [Person] = []
     private var personList = PersonList.shared.getPersonList()
-    
+
     private var isFiltering: Bool {
         let searchController = self.navigationItem.searchController
         let isActive = searchController?.isActive ?? false
@@ -26,13 +26,23 @@ class ViewController: UIViewController {
     }
     
     private var sectionHeaderList: [String] {
+        // Binary Search
+//        let timer = ParkBenchTimer()
+//        var sectionHeaderList: [String] = []
+//        personList.forEach { person in
+//            sectionHeaderList.append(StringManager.shared.chosungCheck(word: person.full))
+//        }
+//        let sectionHeaderTree = BinarySearchTree<String>(array: Array(Set(sectionHeaderList)))
+//        print("The task took \(timer.stop()) seconds.")
+//        return sectionHeaderTree.toArray()
+
         var sectionHeaderList: [String] = []
         personList = personList.sorted()
         personList.forEach { person in
             sectionHeaderList.append(StringManager.shared.chosungCheck(word: person.full))
         }
-        
-        return Array(Set(sectionHeaderList)).sorted()
+        sectionHeaderList = Array(Set(sectionHeaderList)).sorted()
+        return sectionHeaderList
     }
     
     private var filterdHeaderList: [String] = []
@@ -207,8 +217,33 @@ extension ViewController: UISearchResultsUpdating{
             filterdHeaderList.append(StringManager.shared.chosungCheck(word: person.full))
         }
 
-        filterdHeaderList = Array(Set(filterdHeaderList)).quickSort()
-        
+        filterdHeaderList = Array(Set(filterdHeaderList)).quicksort(comparison: { $0 < $1 })
+
         tableView.reloadData()
+    }
+}
+
+import CoreFoundation
+
+class ParkBenchTimer {
+    let startTime: CFAbsoluteTime
+    var endTime: CFAbsoluteTime?
+
+    init() {
+        startTime = CFAbsoluteTimeGetCurrent()
+    }
+
+    func stop() -> CFAbsoluteTime {
+        endTime = CFAbsoluteTimeGetCurrent()
+
+        return duration!
+    }
+
+    var duration: CFAbsoluteTime? {
+        if let endTime = endTime {
+            return endTime - startTime
+        } else {
+            return nil
+        }
     }
 }

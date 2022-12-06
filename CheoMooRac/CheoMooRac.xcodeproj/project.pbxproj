@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1A75E3292F5557005D5789 /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A75E2292F5557005D5789 /* QuickSort.swift */; };
+		DD1A75E5292F557C005D5789 /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A75E4292F557C005D5789 /* MergeSort.swift */; };
+		DD1A75E7292F5593005D5789 /* SelectionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A75E6292F5593005D5789 /* SelectionSort.swift */; };
+		DD1A75EB292F56D0005D5789 /* BubbleSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A75EA292F56D0005D5789 /* BubbleSort.swift */; };
+		DD1A75EF292F60F6005D5789 /* CombSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A75EE292F60F6005D5789 /* CombSort.swift */; };
+		DD1A75F1292F6268005D5789 /* BinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A75F0292F6268005D5789 /* BinarySearchTree.swift */; };
+		DD1A75F3292FC2A4005D5789 /* InsertionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A75F2292FC2A4005D5789 /* InsertionSort.swift */; };
 		DD2844A626EF35C4004FC840 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2844A526EF35C4004FC840 /* AppDelegate.swift */; };
 		DD2844A826EF35C4004FC840 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2844A726EF35C4004FC840 /* SceneDelegate.swift */; };
 		DD2844AA26EF35C4004FC840 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2844A926EF35C4004FC840 /* ViewController.swift */; };
@@ -28,12 +35,18 @@
 		DD6CCCED26F081C600C7BA2C /* MyCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */; };
 		DD6CCCEF26F08EB200C7BA2C /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */; };
 		DD868E7026FB56D700D5BE38 /* StringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD868E6F26FB56D700D5BE38 /* StringManager.swift */; };
-		DDA86CCD292CD7A90042DDA9 /* TimeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA86CCC292CD7A90042DDA9 /* TimeSort.swift */; };
 		DDA86CD0292CD8B50042DDA9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA86CCF292CD8B50042DDA9 /* Person.swift */; };
 		DDC49F1C26F8A829001921C1 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC49F1B26F8A829001921C1 /* ReadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD1A75E2292F5557005D5789 /* QuickSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSort.swift; sourceTree = "<group>"; };
+		DD1A75E4292F557C005D5789 /* MergeSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
+		DD1A75E6292F5593005D5789 /* SelectionSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionSort.swift; sourceTree = "<group>"; };
+		DD1A75EA292F56D0005D5789 /* BubbleSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleSort.swift; sourceTree = "<group>"; };
+		DD1A75EE292F60F6005D5789 /* CombSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombSort.swift; sourceTree = "<group>"; };
+		DD1A75F0292F6268005D5789 /* BinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTree.swift; sourceTree = "<group>"; };
+		DD1A75F2292FC2A4005D5789 /* InsertionSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertionSort.swift; sourceTree = "<group>"; };
 		DD2844A226EF35C4004FC840 /* CheoMooRac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheoMooRac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2844A526EF35C4004FC840 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD2844A726EF35C4004FC840 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +65,6 @@
 		DD6CCCEC26F081C600C7BA2C /* MyCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardTableViewCell.swift; sourceTree = "<group>"; };
 		DD6CCCEE26F08EB200C7BA2C /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		DD868E6F26FB56D700D5BE38 /* StringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringManager.swift; sourceTree = "<group>"; };
-		DDA86CCC292CD7A90042DDA9 /* TimeSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSort.swift; sourceTree = "<group>"; };
 		DDA86CCF292CD8B50042DDA9 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DDC49F1B26F8A829001921C1 /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,7 +211,13 @@
 		DDA86CCB292CD7A10042DDA9 /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
-				DDA86CCC292CD7A90042DDA9 /* TimeSort.swift */,
+				DD1A75EA292F56D0005D5789 /* BubbleSort.swift */,
+				DD1A75E2292F5557005D5789 /* QuickSort.swift */,
+				DD1A75E4292F557C005D5789 /* MergeSort.swift */,
+				DD1A75E6292F5593005D5789 /* SelectionSort.swift */,
+				DD1A75EE292F60F6005D5789 /* CombSort.swift */,
+				DD1A75F0292F6268005D5789 /* BinarySearchTree.swift */,
+				DD1A75F2292FC2A4005D5789 /* InsertionSort.swift */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -295,19 +313,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD6CCCE826F0811600C7BA2C /* UIView+addSubviews.swift in Sources */,
+				DD1A75E7292F5593005D5789 /* SelectionSort.swift in Sources */,
+				DD1A75F1292F6268005D5789 /* BinarySearchTree.swift in Sources */,
 				DD2844AA26EF35C4004FC840 /* ViewController.swift in Sources */,
 				DD372A5D26F0EEAF0033D40A /* ProfileHeaderView.swift in Sources */,
 				DD6CCCEF26F08EB200C7BA2C /* CreateViewController.swift in Sources */,
 				DD868E7026FB56D700D5BE38 /* StringManager.swift in Sources */,
+				DD1A75E3292F5557005D5789 /* QuickSort.swift in Sources */,
+				DD1A75EB292F56D0005D5789 /* BubbleSort.swift in Sources */,
+				DD1A75E5292F557C005D5789 /* MergeSort.swift in Sources */,
 				DD372A5F26F0FD760033D40A /* UIButton+setBackgroundColor.swift in Sources */,
 				DD2844A626EF35C4004FC840 /* AppDelegate.swift in Sources */,
 				DD6CCCEA26F0814300C7BA2C /* UIStackView+addArrangedSubviews.swift in Sources */,
-				DDA86CCD292CD7A90042DDA9 /* TimeSort.swift in Sources */,
 				DDC49F1C26F8A829001921C1 /* ReadViewController.swift in Sources */,
 				DD2844A826EF35C4004FC840 /* SceneDelegate.swift in Sources */,
 				DD2844B026EF35C5004FC840 /* CheoMooRac.xcdatamodeld in Sources */,
+				DD1A75EF292F60F6005D5789 /* CombSort.swift in Sources */,
 				DD6CCCE626F080F300C7BA2C /* UITableView+Generic.swift in Sources */,
 				DD6CCCED26F081C600C7BA2C /* MyCardTableViewCell.swift in Sources */,
+				DD1A75F3292FC2A4005D5789 /* InsertionSort.swift in Sources */,
 				DDA86CD0292CD8B50042DDA9 /* Person.swift in Sources */,
 				DD372A5A26F0EBC30033D40A /* TextFieldTableViewCell.swift in Sources */,
 			);
